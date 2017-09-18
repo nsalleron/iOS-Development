@@ -20,6 +20,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBOutlet weak var monLabel: UILabel!
 
+    var nb = 0;
+    @IBAction func monBouton(_ sender: UIButton) {
+        monLabel.text = " WESH LES POTOS v: \(nb)"
+        nb = nb+1;
+        
+    }
 }
 

@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A67530F81F701913001924D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67530F71F701913001924D8 /* AppDelegate.swift */; };
-		A67530FA1F701913001924D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67530F91F701913001924D8 /* ViewController.swift */; };
-		A67530FD1F701913001924D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67530FB1F701913001924D8 /* Main.storyboard */; };
-		A67530FF1F701913001924D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67530FE1F701913001924D8 /* Assets.xcassets */; };
-		A67531021F701914001924D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67531001F701914001924D8 /* LaunchScreen.storyboard */; };
+		A6DCE71A1F70319B0098C20F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DCE7191F70319B0098C20F /* main.m */; };
+		A6DCE71D1F70319B0098C20F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DCE71C1F70319B0098C20F /* AppDelegate.m */; };
+		A6DCE7201F70319B0098C20F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DCE71F1F70319B0098C20F /* ViewController.m */; };
+		A6DCE7231F70319B0098C20F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DCE7211F70319B0098C20F /* Main.storyboard */; };
+		A6DCE7251F70319B0098C20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6DCE7241F70319B0098C20F /* Assets.xcassets */; };
+		A6DCE7281F70319B0098C20F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DCE7261F70319B0098C20F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A67530F41F701913001924D8 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A67530F71F701913001924D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A67530F91F701913001924D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A67530FC1F701913001924D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A67530FE1F701913001924D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A67531011F701914001924D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A67531031F701914001924D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6DCE7151F70319B0098C20F /* Bonrevoir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonrevoir.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6DCE7191F70319B0098C20F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A6DCE71B1F70319B0098C20F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A6DCE71C1F70319B0098C20F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A6DCE71E1F70319B0098C20F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A6DCE71F1F70319B0098C20F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A6DCE7221F70319B0098C20F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A6DCE7241F70319B0098C20F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A6DCE7271F70319B0098C20F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A6DCE7291F70319B0098C20F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A67530F11F701913001924D8 /* Frameworks */ = {
+		A6DCE7121F70319B0098C20F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,73 +39,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A67530EB1F701913001924D8 = {
+		A6DCE70C1F70319B0098C20F = {
 			isa = PBXGroup;
 			children = (
-				A67530F61F701913001924D8 /* demo */,
-				A67530F51F701913001924D8 /* Products */,
+				A6DCE7171F70319B0098C20F /* Bonrevoir */,
+				A6DCE7161F70319B0098C20F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A67530F51F701913001924D8 /* Products */ = {
+		A6DCE7161F70319B0098C20F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A67530F41F701913001924D8 /* demo.app */,
+				A6DCE7151F70319B0098C20F /* Bonrevoir.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A67530F61F701913001924D8 /* demo */ = {
+		A6DCE7171F70319B0098C20F /* Bonrevoir */ = {
 			isa = PBXGroup;
 			children = (
-				A67530F71F701913001924D8 /* AppDelegate.swift */,
-				A67530F91F701913001924D8 /* ViewController.swift */,
-				A67530FB1F701913001924D8 /* Main.storyboard */,
-				A67530FE1F701913001924D8 /* Assets.xcassets */,
-				A67531001F701914001924D8 /* LaunchScreen.storyboard */,
-				A67531031F701914001924D8 /* Info.plist */,
+				A6DCE71B1F70319B0098C20F /* AppDelegate.h */,
+				A6DCE71C1F70319B0098C20F /* AppDelegate.m */,
+				A6DCE71E1F70319B0098C20F /* ViewController.h */,
+				A6DCE71F1F70319B0098C20F /* ViewController.m */,
+				A6DCE7211F70319B0098C20F /* Main.storyboard */,
+				A6DCE7241F70319B0098C20F /* Assets.xcassets */,
+				A6DCE7261F70319B0098C20F /* LaunchScreen.storyboard */,
+				A6DCE7291F70319B0098C20F /* Info.plist */,
+				A6DCE7181F70319B0098C20F /* Supporting Files */,
 			);
-			path = demo;
+			path = Bonrevoir;
+			sourceTree = "<group>";
+		};
+		A6DCE7181F70319B0098C20F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6DCE7191F70319B0098C20F /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A67530F31F701913001924D8 /* demo */ = {
+		A6DCE7141F70319B0098C20F /* Bonrevoir */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A67531061F701914001924D8 /* Build configuration list for PBXNativeTarget "demo" */;
+			buildConfigurationList = A6DCE72C1F70319B0098C20F /* Build configuration list for PBXNativeTarget "Bonrevoir" */;
 			buildPhases = (
-				A67530F01F701913001924D8 /* Sources */,
-				A67530F11F701913001924D8 /* Frameworks */,
-				A67530F21F701913001924D8 /* Resources */,
+				A6DCE7111F70319B0098C20F /* Sources */,
+				A6DCE7121F70319B0098C20F /* Frameworks */,
+				A6DCE7131F70319B0098C20F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = demo;
-			productName = demo;
-			productReference = A67530F41F701913001924D8 /* demo.app */;
+			name = Bonrevoir;
+			productName = Bonrevoir;
+			productReference = A6DCE7151F70319B0098C20F /* Bonrevoir.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A67530EC1F701913001924D8 /* Project object */ = {
+		A6DCE70D1F70319B0098C20F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Nicolas Salleron";
 				TargetAttributes = {
-					A67530F31F701913001924D8 = {
+					A6DCE7141F70319B0098C20F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = WCSYUG993U;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = A67530EF1F701913001924D8 /* Build configuration list for PBXProject "demo" */;
+			buildConfigurationList = A6DCE7101F70319B0098C20F /* Build configuration list for PBXProject "Bonrevoir" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -109,54 +123,55 @@
 				en,
 				Base,
 			);
-			mainGroup = A67530EB1F701913001924D8;
-			productRefGroup = A67530F51F701913001924D8 /* Products */;
+			mainGroup = A6DCE70C1F70319B0098C20F;
+			productRefGroup = A6DCE7161F70319B0098C20F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A67530F31F701913001924D8 /* demo */,
+				A6DCE7141F70319B0098C20F /* Bonrevoir */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A67530F21F701913001924D8 /* Resources */ = {
+		A6DCE7131F70319B0098C20F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A67531021F701914001924D8 /* LaunchScreen.storyboard in Resources */,
-				A67530FF1F701913001924D8 /* Assets.xcassets in Resources */,
-				A67530FD1F701913001924D8 /* Main.storyboard in Resources */,
+				A6DCE7281F70319B0098C20F /* LaunchScreen.storyboard in Resources */,
+				A6DCE7251F70319B0098C20F /* Assets.xcassets in Resources */,
+				A6DCE7231F70319B0098C20F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A67530F01F701913001924D8 /* Sources */ = {
+		A6DCE7111F70319B0098C20F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A67530FA1F701913001924D8 /* ViewController.swift in Sources */,
-				A67530F81F701913001924D8 /* AppDelegate.swift in Sources */,
+				A6DCE7201F70319B0098C20F /* ViewController.m in Sources */,
+				A6DCE71D1F70319B0098C20F /* AppDelegate.m in Sources */,
+				A6DCE71A1F70319B0098C20F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A67530FB1F701913001924D8 /* Main.storyboard */ = {
+		A6DCE7211F70319B0098C20F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A67530FC1F701913001924D8 /* Base */,
+				A6DCE7221F70319B0098C20F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		A67531001F701914001924D8 /* LaunchScreen.storyboard */ = {
+		A6DCE7261F70319B0098C20F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A67531011F701914001924D8 /* Base */,
+				A6DCE7271F70319B0098C20F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -164,7 +179,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A67531041F701914001924D8 /* Debug */ = {
+		A6DCE72A1F70319B0098C20F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -209,12 +224,10 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		A67531051F701914001924D8 /* Release */ = {
+		A6DCE72B1F70319B0098C20F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -252,59 +265,55 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		A67531071F701914001924D8 /* Debug */ = {
+		A6DCE72D1F70319B0098C20F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WCSYUG993U;
-				INFOPLIST_FILE = demo/Info.plist;
+				INFOPLIST_FILE = Bonrevoir/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.Bonrevoir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		A67531081F701914001924D8 /* Release */ = {
+		A6DCE72E1F70319B0098C20F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WCSYUG993U;
-				INFOPLIST_FILE = demo/Info.plist;
+				INFOPLIST_FILE = Bonrevoir/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.Bonrevoir;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A67530EF1F701913001924D8 /* Build configuration list for PBXProject "demo" */ = {
+		A6DCE7101F70319B0098C20F /* Build configuration list for PBXProject "Bonrevoir" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A67531041F701914001924D8 /* Debug */,
-				A67531051F701914001924D8 /* Release */,
+				A6DCE72A1F70319B0098C20F /* Debug */,
+				A6DCE72B1F70319B0098C20F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A67531061F701914001924D8 /* Build configuration list for PBXNativeTarget "demo" */ = {
+		A6DCE72C1F70319B0098C20F /* Build configuration list for PBXNativeTarget "Bonrevoir" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A67531071F701914001924D8 /* Debug */,
-				A67531081F701914001924D8 /* Release */,
+				A6DCE72D1F70319B0098C20F /* Debug */,
+				A6DCE72E1F70319B0098C20F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A67530EC1F701913001924D8 /* Project object */;
+	rootObject = A6DCE70D1F70319B0098C20F /* Project object */;
 }
