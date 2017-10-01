@@ -72,8 +72,7 @@
 }
 
 - (IBAction)changeSlider:(UISlider*)sender {
-    [_stepper setValue:(int)[sender value]];
-    [self fctCalc:nil];
+  
 }
 - (IBAction)btnRAZ:(UIButton *)sender {
     [_stepper setValue:0];
