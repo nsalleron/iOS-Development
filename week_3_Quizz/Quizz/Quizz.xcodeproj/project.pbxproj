@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A66A40231F8268920032421B /* QuestionsReponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66A40221F8268920032421B /* QuestionsReponses.swift */; };
 		A68238F31F813C2400EDF9AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68238F21F813C2400EDF9AF /* AppDelegate.swift */; };
 		A68238F51F813C2400EDF9AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68238F41F813C2400EDF9AF /* ViewController.swift */; };
 		A68238F81F813C2400EDF9AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68238F61F813C2400EDF9AF /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A66A40221F8268920032421B /* QuestionsReponses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsReponses.swift; sourceTree = "<group>"; };
 		A68238EF1F813C2400EDF9AF /* Quizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68238F21F813C2400EDF9AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A68238F41F813C2400EDF9AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				A68238F91F813C2400EDF9AF /* Assets.xcassets */,
 				A68238FB1F813C2400EDF9AF /* LaunchScreen.storyboard */,
 				A68238FE1F813C2400EDF9AF /* Info.plist */,
+				A66A40221F8268920032421B /* QuestionsReponses.swift */,
 			);
 			path = Quizz;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68238F51F813C2400EDF9AF /* ViewController.swift in Sources */,
+				A66A40231F8268920032421B /* QuestionsReponses.swift in Sources */,
 				A68238F31F813C2400EDF9AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,10 +267,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WCSYUG993U;
 				INFOPLIST_FILE = Quizz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.Quizz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -276,10 +282,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WCSYUG993U;
 				INFOPLIST_FILE = Quizz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.Quizz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -302,6 +310,7 @@
 				A68239031F813C2400EDF9AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

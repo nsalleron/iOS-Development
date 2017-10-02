@@ -68,10 +68,10 @@ class ViewController: UIViewController {
             let dizaine = Int((sender?.selectedSegmentIndex)! * 10)
             btnStepper.value = Double(dizaine+unites)
         }else if (sender === scUnites) {
-            let dizaine = Int((btnStepper.value/10)*10)
+
+            let dizaine = Int((btnStepper.value/10))
             let unites = Int((sender?.selectedSegmentIndex)!)
-            
-            btnStepper.value = Double(dizaine+unites)
+            btnStepper.value = Double(Double(dizaine)*10+Double(unites))
             
         }else{
             scDizaines.selectedSegmentIndex = Int(btnStepper.value/10)
