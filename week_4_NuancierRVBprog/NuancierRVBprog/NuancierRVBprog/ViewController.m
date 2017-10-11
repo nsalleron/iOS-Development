@@ -29,7 +29,7 @@ UIColor* currentColor;
     defaultColor = [UIColor colorWithRed:122.0/255.0 green:122.0/255.0 blue:122.0/255.0 alpha:1];
     [defaultColor retain];
     
-    [[v prec0] setBackgroundColor:defaultColor];
+    [[(mainView*) self.view prec0] setBackgroundColor:defaultColor];
     [[v prec1] setBackgroundColor:defaultColor];
     [[v prec2] setBackgroundColor:defaultColor];
     [[v prec3] setBackgroundColor:defaultColor];
