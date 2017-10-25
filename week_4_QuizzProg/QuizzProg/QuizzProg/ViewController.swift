@@ -82,7 +82,8 @@ class ViewController: UIViewController {
                 index = maxIndex - 1
             }
             NSLog("Valeur de index \(index)")
-            UIView.animate(withDuration: 7.0, animations: {
+            
+            UIView.animate(withDuration: 1.2, animations: {
                 let animation = CATransition()
                 animation.duration = 1.2
                 animation.startProgress = 0.0
@@ -94,6 +95,7 @@ class ViewController: UIViewController {
                 animation.fillMode = "extended"
                 self.view.layer.add(animation, forKey: "pageFlipAnimation")
             })
+            
         }else{
             index += 1 //Mode changement btn switch
             NSLog("Passage après switch")

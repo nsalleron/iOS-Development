@@ -1,0 +1,344 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A618032F1F9D163C00243440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A618032E1F9D163C00243440 /* Assets.xcassets */; };
+		A61803311F9D16DC00243440 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803301F9D16DC00243440 /* ConfigView.swift */; };
+		A61803331F9D16EB00243440 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803321F9D16EB00243440 /* ScoreView.swift */; };
+		A61803351F9D16F800243440 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803341F9D16F800243440 /* GameView.swift */; };
+		A61803371F9D268C00243440 /* RocketBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803361F9D268C00243440 /* RocketBullet.swift */; };
+		A6918C201F9D060500520950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6918C1F1F9D060500520950 /* AppDelegate.swift */; };
+		A6918C221F9D060500520950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6918C211F9D060500520950 /* ViewController.swift */; };
+		A6918C251F9D060500520950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6918C231F9D060500520950 /* Main.storyboard */; };
+		A6918C2A1F9D060500520950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6918C281F9D060500520950 /* LaunchScreen.storyboard */; };
+		A6918C321F9D061E00520950 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6918C311F9D061E00520950 /* HomeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A618032E1F9D163C00243440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A61803301F9D16DC00243440 /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigView.swift; path = ../ConfigView.swift; sourceTree = "<group>"; };
+		A61803321F9D16EB00243440 /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreView.swift; path = ../ScoreView.swift; sourceTree = "<group>"; };
+		A61803341F9D16F800243440 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameView.swift; path = ../GameView.swift; sourceTree = "<group>"; };
+		A61803361F9D268C00243440 /* RocketBullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketBullet.swift; sourceTree = "<group>"; };
+		A6192B271F9E291A00BB483A /* SuperMario256.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SuperMario256.ttf; sourceTree = "<group>"; };
+		A6918C1C1F9D060500520950 /* RocketMario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketMario.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6918C1F1F9D060500520950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A6918C211F9D060500520950 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6918C241F9D060500520950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A6918C291F9D060500520950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A6918C2B1F9D060500520950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6918C311F9D061E00520950 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = ../HomeView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A6918C191F9D060500520950 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A6192B251F9E266600BB483A /* CustomFont */ = {
+			isa = PBXGroup;
+			children = (
+				A6192B271F9E291A00BB483A /* SuperMario256.ttf */,
+			);
+			name = CustomFont;
+			sourceTree = "<group>";
+		};
+		A6918C131F9D060500520950 = {
+			isa = PBXGroup;
+			children = (
+				A6918C1E1F9D060500520950 /* RocketMario */,
+				A6918C1D1F9D060500520950 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A6918C1D1F9D060500520950 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6918C1C1F9D060500520950 /* RocketMario.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6918C1E1F9D060500520950 /* RocketMario */ = {
+			isa = PBXGroup;
+			children = (
+				A6192B251F9E266600BB483A /* CustomFont */,
+				A61803341F9D16F800243440 /* GameView.swift */,
+				A61803361F9D268C00243440 /* RocketBullet.swift */,
+				A61803321F9D16EB00243440 /* ScoreView.swift */,
+				A61803301F9D16DC00243440 /* ConfigView.swift */,
+				A6918C311F9D061E00520950 /* HomeView.swift */,
+				A6918C1F1F9D060500520950 /* AppDelegate.swift */,
+				A618032E1F9D163C00243440 /* Assets.xcassets */,
+				A6918C211F9D060500520950 /* ViewController.swift */,
+				A6918C231F9D060500520950 /* Main.storyboard */,
+				A6918C281F9D060500520950 /* LaunchScreen.storyboard */,
+				A6918C2B1F9D060500520950 /* Info.plist */,
+			);
+			path = RocketMario;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A6918C1B1F9D060500520950 /* RocketMario */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6918C2E1F9D060500520950 /* Build configuration list for PBXNativeTarget "RocketMario" */;
+			buildPhases = (
+				A6918C181F9D060500520950 /* Sources */,
+				A6918C191F9D060500520950 /* Frameworks */,
+				A6918C1A1F9D060500520950 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RocketMario;
+			productName = RocketMario;
+			productReference = A6918C1C1F9D060500520950 /* RocketMario.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A6918C141F9D060500520950 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Nicolas Salleron";
+				TargetAttributes = {
+					A6918C1B1F9D060500520950 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = WCSYUG993U;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A6918C171F9D060500520950 /* Build configuration list for PBXProject "RocketMario" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A6918C131F9D060500520950;
+			productRefGroup = A6918C1D1F9D060500520950 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6918C1B1F9D060500520950 /* RocketMario */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A6918C1A1F9D060500520950 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6918C2A1F9D060500520950 /* LaunchScreen.storyboard in Resources */,
+				A618032F1F9D163C00243440 /* Assets.xcassets in Resources */,
+				A6918C251F9D060500520950 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6918C181F9D060500520950 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A61803311F9D16DC00243440 /* ConfigView.swift in Sources */,
+				A6918C221F9D060500520950 /* ViewController.swift in Sources */,
+				A61803371F9D268C00243440 /* RocketBullet.swift in Sources */,
+				A6918C321F9D061E00520950 /* HomeView.swift in Sources */,
+				A6918C201F9D060500520950 /* AppDelegate.swift in Sources */,
+				A61803351F9D16F800243440 /* GameView.swift in Sources */,
+				A61803331F9D16EB00243440 /* ScoreView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A6918C231F9D060500520950 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6918C241F9D060500520950 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A6918C281F9D060500520950 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6918C291F9D060500520950 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A6918C2C1F9D060500520950 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A6918C2D1F9D060500520950 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A6918C2F1F9D060500520950 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WCSYUG993U;
+				INFOPLIST_FILE = RocketMario/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.RocketMario;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A6918C301F9D060500520950 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WCSYUG993U;
+				INFOPLIST_FILE = RocketMario/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.RocketMario;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A6918C171F9D060500520950 /* Build configuration list for PBXProject "RocketMario" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6918C2C1F9D060500520950 /* Debug */,
+				A6918C2D1F9D060500520950 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6918C2E1F9D060500520950 /* Build configuration list for PBXNativeTarget "RocketMario" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6918C2F1F9D060500520950 /* Debug */,
+				A6918C301F9D060500520950 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A6918C141F9D060500520950 /* Project object */;
+}
