@@ -62,12 +62,12 @@ class GameView: UIView {
         size = frame
         
         //btnG.backgroundColor = UIColor.green
-        btnG.addTarget(self, action: #selector(GameView.marioLeftPosition), for: .touchDown)
-        btnG.addTarget(self, action: #selector(GameView.marioLeftPosition), for: .touchUpInside)
+        btnG.addTarget(super.superview, action: #selector(ViewController.marioLeftPosition), for: .touchDown)
+        btnG.addTarget(super.superview, action: #selector(ViewController.marioLeftPosition), for: .touchUpInside)
         
         //btnD.backgroundColor = UIColor.red
-        btnD.addTarget(self, action: #selector(GameView.marioRightPosition), for: .touchDown)
-        btnD.addTarget(self, action: #selector(GameView.marioRightPosition), for: .touchUpInside)
+        btnD.addTarget(super.superview, action: #selector(ViewController.marioRightPosition), for: .touchDown)
+        btnD.addTarget(super.superview, action: #selector(ViewController.marioRightPosition), for: .touchUpInside)
         
         labelVie.text = String(format: "     Vie : %d", marioVie)
         labelVie.textColor = UIColor.white
@@ -125,32 +125,6 @@ class GameView: UIView {
         
         
     }
-    
-    func marioLeftPosition(){
-        if(marioLeft){
-            marioLeft = false
-        }else{
-            marioLeft = true
-        }
-    }
-    
-    func marioRightPosition(){
-        if(marioRight){
-            marioRight = false
-        }else{
-            marioRight = true
-        }
-    }
-    
-    func updateMario(){
-        
-        mario.removeFromSuperview()
-        mario = UIImageView(image: UIImage(named: "mario"))
-        addSubview(mario)
-        marioCollision = false
-        self.DessineDansFormat(f: size.size)
-    }
-    
     
     
     func updateMainView(){
@@ -241,7 +215,7 @@ class GameView: UIView {
                         self.addSubview(mario)
                         
                         if(marioVie != 0){
-                            Timer.scheduledTimer(timeInterval: Double(6/NIVEAU), target: self, selector: #selector(GameView.updateMario), userInfo: nil, repeats: false)
+                            Timer.scheduledTimer(timeInterval: Double(6/NIVEAU), target: self , selector: #selector(GameView.updateMario), userInfo: nil, repeats: false)
                         }else{
                             timer.invalidate()
                             btnContinue.isHidden = false
@@ -295,6 +269,15 @@ class GameView: UIView {
         
         /* Mise en place de l'affichage */
         self.DessineDansFormat(f: size.size)
+    }
+    
+    func updateMario(){
+        
+        mario.removeFromSuperview()
+        mario = UIImageView(image: UIImage(named: "mario"))
+        addSubview(mario)
+        marioCollision = false
+        DessineDansFormat(f: UIScreen.main.bounds.size)
     }
     
     func DessineDansFormat(f : CGSize) -> Void {

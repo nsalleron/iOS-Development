@@ -102,6 +102,26 @@ class ViewController: UIViewController {
     }
     
     
+    
+    func marioLeftPosition(){
+        let view = self.view as! GameView
+        if(view.marioLeft){
+            view.marioLeft = false
+        }else{
+            view.marioLeft = true
+        }
+    }
+    
+    func marioRightPosition(){
+        let view = self.view as! GameView
+        if(view.marioRight){
+            view.marioRight = false
+        }else{
+            view.marioRight = true
+        }
+    }
+    
+    
     override var shouldAutorotate: Bool{
         return true
     }

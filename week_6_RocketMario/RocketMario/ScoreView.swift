@@ -24,6 +24,8 @@ class ScoreView: UIView, UITextFieldDelegate {
     let labelScoreAffichage = UILabel()
     var tabScore = Array<String>()
     var tabJoueur = Array<String>()
+    var tabtemp = Array<String>()
+    
     var finDePartie = false
     var f = CGRect();
     /*
@@ -67,6 +69,8 @@ class ScoreView: UIView, UITextFieldDelegate {
         labelScoreAffichage.textAlignment = NSTextAlignment.center
         labelScoreAffichage.numberOfLines = 6
         labelScoreAffichage.font = UIFont.init(name: "Optima", size: 20)
+        
+        
         var i = 0
         if(tabScore.count == 0 || tabJoueur.count == 0){
             
@@ -76,17 +80,22 @@ class ScoreView: UIView, UITextFieldDelegate {
             }
         }else{
             for string in tabScore {
-                if (i == 5){
+                if (i == 4){
                     break;
                 }
                 if(self.tabJoueur[i] == "!???" || self.tabJoueur[i] == "-???"){
+                    
                     labelScoreAffichage.text = labelScoreAffichage.text! + "???" + " : "+string+"\n"
                 }else{
                     labelScoreAffichage.text = labelScoreAffichage.text! + self.tabJoueur[i] + " : "+string+"\n"
+                    
                 }
                 i += 1
             }
         }
+        
+        
+        
         
         /* Configuration du button recommencer */
         if(finDePartie){
@@ -163,6 +172,9 @@ class ScoreView: UIView, UITextFieldDelegate {
         var i = 0
         for string in tabScore {
             print(tmp)
+            if (i == 5) {
+                break
+            }
             if(self.tabJoueur[i] == "!???"){
                 self.tabJoueur[i] = tmp
             }
@@ -173,9 +185,7 @@ class ScoreView: UIView, UITextFieldDelegate {
             }
             
             i += 1
-            if (i == 5) {
-                break
-            }
+            
         }
         self.DessineDansFormat(f: self.frame.size)
     }
