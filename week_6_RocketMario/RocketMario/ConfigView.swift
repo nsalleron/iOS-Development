@@ -17,7 +17,7 @@ class ConfigView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     var blurEffectView = UIVisualEffectView()
     let btnAccueil = UIButton()
     var pickerDifficult: UIPickerView = UIPickerView()
-    let valDifficult: Array<String> = ["I'm too young to die","Can I play, Dady?", "Don't hurt me", "Bring 'em on!", "Nightmare", "Ultra-Nightmare"]
+    let valDifficult: Array<String> = ["I'm too young to die","Can I play, Daddy?", "Don't hurt me", "Bring 'em on!", "Nightmare", "Ultra-Nightmare"]
     var currentDifficult : Int = 1
     /*
      // Only override draw() if you perform custom drawing.

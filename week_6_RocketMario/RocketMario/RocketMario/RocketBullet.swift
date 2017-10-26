@@ -83,6 +83,7 @@ class RocketBullet: UIImageView {
         //NSLog("DEPLACEMENT BULLET !!!!")
         y += deplacement
         x += alongAxisX
+        
     }
     
     func location(x: Int,y: Int){

@@ -289,10 +289,12 @@ class GameView: UIView {
         
         for bullet in tabBullet{
             let myBullet =  (bullet as! RocketBullet)
+            
             myBullet.frame = CGRect(x: Int(myBullet.x)-50,
                                     y: Int(myBullet.y)-50,
                                     width: 50,
                                     height: 50)
+            
         }
         
         labelVie.frame = CGRect(x: 10, y: 10, width: 100, height: 50)
