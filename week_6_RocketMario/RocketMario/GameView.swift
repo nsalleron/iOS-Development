@@ -178,6 +178,8 @@ class GameView: UIView {
                 marioBulletValue.value -= 1
                 tabMarioBullet.append(tmpMarioFire)
                 self.addSubview(tmpMarioFire)
+                let url = Bundle.main.url(forResource: String.init(format: "laser_gun"), withExtension: "mp3")
+                tmpMarioFire.playSound(url: url!)
             }
            
         }
@@ -266,6 +268,7 @@ class GameView: UIView {
                         }else{
                             timer.invalidate()
                             btnContinue.isHidden = false
+                            
                         }
                     }
                     labelVie.text = String(format: "     Vie : %d", marioVie)
@@ -335,9 +338,9 @@ class GameView: UIView {
         for bullet in tabMarioBullet{
             let b = (bullet as! RocketBullet)
             if(b.explosion == true && b.tooManyTime <= 0){
-                tabMarioBullet.remove(at: i)
+                //tabMarioBullet.remove(at: i)
                 b.removeFromSuperview()
-                i -= 1
+                //i -= 1
             }else if (b.explosion){
                 b.tooManyTime -= 1
                 print("Val : %d",b.tooManyTime)
@@ -379,7 +382,7 @@ class GameView: UIView {
         
         if(nbBulletTotal % 5 == 0){
             
-            marioBulletValue.value += 0.10
+            marioBulletValue.value += 0.03
             
             
         }

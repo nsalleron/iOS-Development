@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class RocketBullet: UIImageView {
     
@@ -22,12 +23,15 @@ class RocketBullet: UIImageView {
     var typeRocket = 0
     var bonus = false
     var explosion = false
+    var player: AVAudioPlayer?
     
     init(marioFire: CGSize, x: Int, y: Int){
         super.init(image: #imageLiteral(resourceName: "fireball"))
         alongAxisY = 6
         self.location(x: x+55, y: y)
         self.transform = CGAffineTransform(rotationAngle: -1.5708);
+        
+        
     }
     
     init(posRocket : CGSize, deplacement : Int){
@@ -111,12 +115,19 @@ class RocketBullet: UIImageView {
         default:
            super.image = #imageLiteral(resourceName: "explosion2")
         }
-
+        if(self.explosion == false){
+            let randomSound = arc4random_uniform(UInt32(5 - 1))+1
+            NSLog(String.init(format: "explode_%d", randomSound))
+            let url = Bundle.main.url(forResource: String.init(format: "explode_%d", randomSound), withExtension: "mp3")
+            playSound(url: url!)
+        }
         self.explosion = true
+        
     }
     
     func kaboom(){
         life -= 1
+        
         if( life >= 5){
             switch typeRocket {
             case 1:
@@ -130,7 +141,6 @@ class RocketBullet: UIImageView {
             default:
                 ()
             }
-            
         }else{
             switch typeRocket {
             case 1:
@@ -144,7 +154,6 @@ class RocketBullet: UIImageView {
             default:
                 ()
             }
-            
         }
     }
     
@@ -173,5 +182,37 @@ class RocketBullet: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-       
+    
+    func endSound(){
+        player?.stop()
+    }
+    
+    func playSound(url : URL) -> Void{
+        
+        DispatchQueue.global().async {
+            
+            //print(self.description)
+            if(self.player != nil){
+                if((self.player?.isPlaying)!){
+                    NSLog("PLAYING")
+                    self.player?.stop()
+                }
+            }
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                try AVAudioSession.sharedInstance().setActive(true)
+                
+                self.player = try AVAudioPlayer(contentsOf: url)
+                guard let player = self.player else { return }
+                
+                player.play()
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+
+        
+    }
+    
 }

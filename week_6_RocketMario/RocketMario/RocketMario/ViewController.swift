@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -14,6 +15,8 @@ class ViewController: UIViewController {
     var tabScore = Array<String>()
     var tabJoueurs = Array<String>()
     var difficult: Int = 3;
+    var player: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -80,6 +83,7 @@ class ViewController: UIViewController {
     func gotoGameView(){
         let gv = GameView(frame : UIScreen.main.bounds, val: difficult)
         self.view = gv
+        playSound()
     }
     
     func gotoScoreView(){
@@ -98,6 +102,7 @@ class ViewController: UIViewController {
         tabScore.append(String(format: "%d", view.nbBulletTotal))
         let sv = ScoreView(frame: UIScreen.main.bounds,tabJoueur: tabJoueurs, tabScore: tabScore, finDePartie: true)
         self.view = sv
+        endSound()
         //NSLog("Mario !")
     }
     
@@ -119,6 +124,30 @@ class ViewController: UIViewController {
         }else{
             view.marioRight = true
         }
+    }
+    
+    func endSound(){
+        player?.stop()
+    }
+    
+    func playSound() {
+        let url = Bundle.main.url(forResource: "mario", withExtension: "mp3")
+        
+        DispatchQueue.global().async {
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                try AVAudioSession.sharedInstance().setActive(true)
+                
+                self.player = try AVAudioPlayer(contentsOf: url!)
+                guard let player = self.player else { return }
+                
+                player.play()
+                NSLog("go?")
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+        
     }
     
     

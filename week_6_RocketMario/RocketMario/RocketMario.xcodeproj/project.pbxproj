@@ -12,6 +12,13 @@
 		A61803351F9D16F800243440 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803341F9D16F800243440 /* GameView.swift */; };
 		A61803371F9D268C00243440 /* RocketBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803361F9D268C00243440 /* RocketBullet.swift */; };
 		A68FB0BC1FA470A80032F03B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0BB1FA470A80032F03B /* Assets.xcassets */; };
+		A68FB0C21FA51DB60032F03B /* mario.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0C11FA51DB60032F03B /* mario.mp3 */; };
+		A68FB0C81FA525E40032F03B /* explode_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0C31FA525E40032F03B /* explode_2.mp3 */; };
+		A68FB0C91FA525E40032F03B /* explode_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0C41FA525E40032F03B /* explode_3.mp3 */; };
+		A68FB0CA1FA525E40032F03B /* explode_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0C51FA525E40032F03B /* explode_4.mp3 */; };
+		A68FB0CB1FA525E40032F03B /* explode_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0C61FA525E40032F03B /* explode_5.mp3 */; };
+		A68FB0CC1FA525E40032F03B /* explode_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0C71FA525E40032F03B /* explode_1.mp3 */; };
+		A68FB0CE1FA52C200032F03B /* laser_gun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0CD1FA52C200032F03B /* laser_gun.mp3 */; };
 		A6918C201F9D060500520950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6918C1F1F9D060500520950 /* AppDelegate.swift */; };
 		A6918C221F9D060500520950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6918C211F9D060500520950 /* ViewController.swift */; };
 		A6918C251F9D060500520950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6918C231F9D060500520950 /* Main.storyboard */; };
@@ -26,6 +33,13 @@
 		A61803361F9D268C00243440 /* RocketBullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketBullet.swift; sourceTree = "<group>"; };
 		A6192B271F9E291A00BB483A /* SuperMario256.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SuperMario256.ttf; sourceTree = "<group>"; };
 		A68FB0BB1FA470A80032F03B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A68FB0C11FA51DB60032F03B /* mario.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mario.mp3; sourceTree = "<group>"; };
+		A68FB0C31FA525E40032F03B /* explode_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explode_2.mp3; sourceTree = "<group>"; };
+		A68FB0C41FA525E40032F03B /* explode_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explode_3.mp3; sourceTree = "<group>"; };
+		A68FB0C51FA525E40032F03B /* explode_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explode_4.mp3; sourceTree = "<group>"; };
+		A68FB0C61FA525E40032F03B /* explode_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explode_5.mp3; sourceTree = "<group>"; };
+		A68FB0C71FA525E40032F03B /* explode_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explode_1.mp3; sourceTree = "<group>"; };
+		A68FB0CD1FA52C200032F03B /* laser_gun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laser_gun.mp3; sourceTree = "<group>"; };
 		A6918C1C1F9D060500520950 /* RocketMario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketMario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6918C1F1F9D060500520950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6918C211F9D060500520950 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +68,20 @@
 			name = CustomFont;
 			sourceTree = "<group>";
 		};
+		A68FB0BF1FA519540032F03B /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				A68FB0C31FA525E40032F03B /* explode_2.mp3 */,
+				A68FB0C41FA525E40032F03B /* explode_3.mp3 */,
+				A68FB0C51FA525E40032F03B /* explode_4.mp3 */,
+				A68FB0C61FA525E40032F03B /* explode_5.mp3 */,
+				A68FB0C71FA525E40032F03B /* explode_1.mp3 */,
+				A68FB0CD1FA52C200032F03B /* laser_gun.mp3 */,
+				A68FB0C11FA51DB60032F03B /* mario.mp3 */,
+			);
+			name = Music;
+			sourceTree = "<group>";
+		};
 		A6918C131F9D060500520950 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +101,7 @@
 		A6918C1E1F9D060500520950 /* RocketMario */ = {
 			isa = PBXGroup;
 			children = (
+				A68FB0BF1FA519540032F03B /* Music */,
 				A6192B251F9E266600BB483A /* CustomFont */,
 				A61803341F9D16F800243440 /* GameView.swift */,
 				A68FB0BB1FA470A80032F03B /* Assets.xcassets */,
@@ -149,9 +178,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68FB0CB1FA525E40032F03B /* explode_5.mp3 in Resources */,
 				A6918C2A1F9D060500520950 /* LaunchScreen.storyboard in Resources */,
+				A68FB0CC1FA525E40032F03B /* explode_1.mp3 in Resources */,
 				A68FB0BC1FA470A80032F03B /* Assets.xcassets in Resources */,
+				A68FB0C91FA525E40032F03B /* explode_3.mp3 in Resources */,
+				A68FB0C81FA525E40032F03B /* explode_2.mp3 in Resources */,
+				A68FB0CE1FA52C200032F03B /* laser_gun.mp3 in Resources */,
+				A68FB0CA1FA525E40032F03B /* explode_4.mp3 in Resources */,
 				A6918C251F9D060500520950 /* Main.storyboard in Resources */,
+				A68FB0C21FA51DB60032F03B /* mario.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
