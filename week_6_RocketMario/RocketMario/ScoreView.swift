@@ -99,7 +99,7 @@ class ScoreView: UIView, UITextFieldDelegate {
         
         /* Configuration du button recommencer */
         if(finDePartie){
-            btnRecommencer.setTitle(" => Play ! ", for: .normal)
+            btnRecommencer.setTitle(" <= Play ! ", for: .normal)
             btnRecommencer.setTitle("", for: .highlighted)
             btnRecommencer.layer.cornerRadius = 10
             btnRecommencer.clipsToBounds = true
@@ -109,9 +109,8 @@ class ScoreView: UIView, UITextFieldDelegate {
             btnRecommencer.tintColor = UIColor.white
             btnRecommencer.addTarget(self.superview, action: #selector(ViewController.gotoGameViewFromScore), for: .touchUpInside)
             
-            labelScore.text = "Bravo :"
             tfScore.backgroundColor = UIColor.white
-            tfScore.placeholder = "Name :)"
+            tfScore.placeholder = "Entrez votre score ici :)"
             tfScore.font = UIFont.init(name: "Optima", size: 15)
             tfScore.borderStyle = UITextBorderStyle.roundedRect
             tfScore.autocorrectionType = UITextAutocorrectionType.no
@@ -132,7 +131,7 @@ class ScoreView: UIView, UITextFieldDelegate {
         self.addSubview(btnRecommencer)
         self.addSubview(tfScore)
         self.addSubview(labelScoreAffichage)
-        self.DessineDansFormat(f: f.size)
+        self.DessineDansFormat(f: f.size, editingTf: false)
         
         
     }
@@ -142,27 +141,33 @@ class ScoreView: UIView, UITextFieldDelegate {
     
     override func draw(_ rect: CGRect) {
         // Drawing code
-        self.DessineDansFormat(f: rect.size)
+        self.DessineDansFormat(f: rect.size,editingTf: false)
         
         
     }
     
-    func DessineDansFormat(f : CGSize) -> Void {
+    func DessineDansFormat(f : CGSize,editingTf : Bool) -> Void {
         let size = Int(f.width/3) - 30
-        fondImage.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
-        blurEffectView.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
-        btnRetour.frame = CGRect(x: Int(f.width) - Int(Double(size)/1.4), y: Int(f.height) - size/2, width: 110, height: 70)
-        labelScore.frame = CGRect(x: (f.width/2)-75, y: 10, width: 150, height: 70)
-        labelScoreAffichage.frame = CGRect(x: (f.width/2)-75, y: 90, width: 150, height: 140)
-        btnRecommencer.frame = CGRect(x: 10, y: Int(f.height) - size/2, width: 100, height: 70)
-        if(finDePartie){
-            labelScore.frame = CGRect(x: (f.width/2)-100, y: 10, width: 100, height: 70)
-            tfScore.frame = CGRect(x: (f.width/2), y: 10, width: 100, height: 70)
+        if(editingTf == true){
+            fondImage.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
+            blurEffectView.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
+            btnRetour.frame = CGRect(x: Int(f.width) - Int(Double(size)/1.4), y: Int(f.height/2) - size/2, width: 110, height: 70)
+            labelScoreAffichage.frame = CGRect(x: (f.width/2)-75, y: 90 - 200, width: 150, height: 140)
+            btnRecommencer.frame = CGRect(x: 10, y: Int(f.height/2) - size/2, width: 100, height: 70)
+            if(finDePartie){
+                tfScore.frame = CGRect(x: Int(f.width/2)-200/2, y: Int(f.height/2) - size/2, width: 200, height: 70)
+            }
         }else{
+            fondImage.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
+            blurEffectView.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
+            btnRetour.frame = CGRect(x: Int(f.width) - Int(Double(size)/1.4), y: Int(f.height) - size/2, width: 110, height: 70)
+            labelScoreAffichage.frame = CGRect(x: (f.width/2)-75, y: 90, width: 150, height: 140)
+            btnRecommencer.frame = CGRect(x: 10, y: Int(f.height) - size/2, width: 100, height: 70)
             labelScore.frame = CGRect(x: (f.width/2)-75, y: 10, width: 150, height: 70)
+            if(finDePartie){
+                tfScore.frame = CGRect(x: Int(f.width/2)-200/2, y: Int(f.height) - size/2, width: 200, height: 70)
+            }
         }
-        
-
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -187,11 +192,12 @@ class ScoreView: UIView, UITextFieldDelegate {
             i += 1
             
         }
-        self.DessineDansFormat(f: self.frame.size)
+        self.DessineDansFormat(f: self.frame.size, editingTf: false)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         //print("TextField should begin editing method called")
+        self.DessineDansFormat(f: self.frame.size, editingTf: true)
         return true;
     }
     

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A618032F1F9D163C00243440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A618032E1F9D163C00243440 /* Assets.xcassets */; };
 		A61803311F9D16DC00243440 /* ConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803301F9D16DC00243440 /* ConfigView.swift */; };
 		A61803331F9D16EB00243440 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803321F9D16EB00243440 /* ScoreView.swift */; };
 		A61803351F9D16F800243440 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803341F9D16F800243440 /* GameView.swift */; };
 		A61803371F9D268C00243440 /* RocketBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61803361F9D268C00243440 /* RocketBullet.swift */; };
+		A68FB0BC1FA470A80032F03B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68FB0BB1FA470A80032F03B /* Assets.xcassets */; };
 		A6918C201F9D060500520950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6918C1F1F9D060500520950 /* AppDelegate.swift */; };
 		A6918C221F9D060500520950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6918C211F9D060500520950 /* ViewController.swift */; };
 		A6918C251F9D060500520950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6918C231F9D060500520950 /* Main.storyboard */; };
@@ -20,12 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A618032E1F9D163C00243440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A61803301F9D16DC00243440 /* ConfigView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigView.swift; path = ../ConfigView.swift; sourceTree = "<group>"; };
 		A61803321F9D16EB00243440 /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreView.swift; path = ../ScoreView.swift; sourceTree = "<group>"; };
 		A61803341F9D16F800243440 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameView.swift; path = ../GameView.swift; sourceTree = "<group>"; };
 		A61803361F9D268C00243440 /* RocketBullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketBullet.swift; sourceTree = "<group>"; };
 		A6192B271F9E291A00BB483A /* SuperMario256.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SuperMario256.ttf; sourceTree = "<group>"; };
+		A68FB0BB1FA470A80032F03B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6918C1C1F9D060500520950 /* RocketMario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketMario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6918C1F1F9D060500520950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6918C211F9D060500520950 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,12 +75,12 @@
 			children = (
 				A6192B251F9E266600BB483A /* CustomFont */,
 				A61803341F9D16F800243440 /* GameView.swift */,
+				A68FB0BB1FA470A80032F03B /* Assets.xcassets */,
 				A61803361F9D268C00243440 /* RocketBullet.swift */,
 				A61803321F9D16EB00243440 /* ScoreView.swift */,
 				A61803301F9D16DC00243440 /* ConfigView.swift */,
 				A6918C311F9D061E00520950 /* HomeView.swift */,
 				A6918C1F1F9D060500520950 /* AppDelegate.swift */,
-				A618032E1F9D163C00243440 /* Assets.xcassets */,
 				A6918C211F9D060500520950 /* ViewController.swift */,
 				A6918C231F9D060500520950 /* Main.storyboard */,
 				A6918C281F9D060500520950 /* LaunchScreen.storyboard */,
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6918C2A1F9D060500520950 /* LaunchScreen.storyboard in Resources */,
-				A618032F1F9D163C00243440 /* Assets.xcassets in Resources */,
+				A68FB0BC1FA470A80032F03B /* Assets.xcassets in Resources */,
 				A6918C251F9D060500520950 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

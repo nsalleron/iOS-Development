@@ -15,33 +15,51 @@ class RocketBullet: UIImageView {
     var x = 0.0, y = 0.0;
     var deplacement = 0.0
     var alongAxisX = 0.0
+    var alongAxisY = 0.0
+    var life = 10
     var size = CGSize()
-    var tooManyTime = 0;
+    var tooManyTime = 5;
+    var typeRocket = 0
     var bonus = false
+    var explosion = false
+    
+    init(marioFire: CGSize, x: Int, y: Int){
+        super.init(image: #imageLiteral(resourceName: "fireball"))
+        alongAxisY = 6
+        self.location(x: x+55, y: y)
+        self.transform = CGAffineTransform(rotationAngle: -1.5708);
+    }
     
     init(posRocket : CGSize, deplacement : Int){
         var randomPositionStart = arc4random_uniform(UInt32(6 - 0)) + 0
         switch randomPositionStart {
         case 1:
             super.init(image: #imageLiteral(resourceName: "gold_bullet"))
+            typeRocket = 1
         case 2:
-            super.init(image: #imageLiteral(resourceName: "normal_bullet"))
+            super.init(image: #imageLiteral(resourceName: "normal_bullet_0"))
+            typeRocket = 2
         case 3:
-            super.init(image: #imageLiteral(resourceName: "Brick"))
+            super.init(image: #imageLiteral(resourceName: "Brick_0"))
+            typeRocket = 3
         case 4:
-            super.init(image: #imageLiteral(resourceName: "fantom"))
+            super.init(image: #imageLiteral(resourceName: "fantom_0"))
+            typeRocket = 4
         case 5:
             randomPositionStart = arc4random_uniform(UInt32(3))
             if(randomPositionStart == 0){
                 super.init(image: #imageLiteral(resourceName: "etoile"))
                 bonus = true
+                typeRocket = 10
             }else{
-                super.init(image: #imageLiteral(resourceName: "normal_bullet"))
+                super.init(image: #imageLiteral(resourceName: "normal_bullet_0"))
+                typeRocket = 2
             }
             
            
         default:
-            super.init(image: #imageLiteral(resourceName: "normal_bullet"))
+            super.init(image: #imageLiteral(resourceName: "normal_bullet_0"))
+            typeRocket = 2
         }
         randomPositionStart = arc4random_uniform(UInt32(7 - 0)) + 0
         switch randomPositionStart {
@@ -71,12 +89,68 @@ class RocketBullet: UIImageView {
         self.location(x: tmpX, y: 0)
         //NSLog("pos : %lf NEW BULLET x : %lf y: %lf",posRocket.width,x,y)
         self.transform = CGAffineTransform(rotationAngle: -1.5708);
+        
     }
     
     func reRand(){
         self.location(x: Int(arc4random_uniform(UInt32((size.width)))), y: 0)
     }
     
+    func explosionFire(){
+        
+        let randomPositionStart = arc4random_uniform(UInt32(4))
+        switch randomPositionStart {
+        case 1:
+            super.image = #imageLiteral(resourceName: "explosion")
+        case 2:
+            super.image = #imageLiteral(resourceName: "explosion1")
+        case 3:
+            super.image = #imageLiteral(resourceName: "explosion2")
+        case 4:
+            super.image = #imageLiteral(resourceName: "explosion3")
+        default:
+           super.image = #imageLiteral(resourceName: "explosion2")
+        }
+
+        self.explosion = true
+    }
+    
+    func kaboom(){
+        life -= 1
+        if( life >= 5){
+            switch typeRocket {
+            case 1:
+                super.image = #imageLiteral(resourceName: "gold_bullet")
+            case 2:
+                super.image = #imageLiteral(resourceName: "normal_bullet_1")
+            case 3:
+                 super.image = #imageLiteral(resourceName: "Brick_1")
+            case 4:
+                super.image = #imageLiteral(resourceName: "fantom_1")
+            default:
+                ()
+            }
+            
+        }else{
+            switch typeRocket {
+            case 1:
+                super.image = #imageLiteral(resourceName: "normal_bullet_2")
+            case 2:
+                super.image = #imageLiteral(resourceName: "normal_bullet_2")
+            case 3:
+                 super.image = #imageLiteral(resourceName: "Brick_2")
+            case 4:
+                super.image = #imageLiteral(resourceName: "fantom_1")
+            default:
+                ()
+            }
+            
+        }
+    }
+    
+    func changeLocationFire(){
+        y -= alongAxisY
+    }
     
     
     func changeLocation(){
@@ -99,8 +173,5 @@ class RocketBullet: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-   
-
        
 }

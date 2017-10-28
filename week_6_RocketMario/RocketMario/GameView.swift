@@ -18,7 +18,9 @@ class GameView: UIView {
     let btnG = UIButton()
     let btnD = UIButton()
     let btnContinue = UIButton()
+    let marioBulletValue = UISlider()
     var size = CGRect();
+    
     
     /*
      // Only override draw() if you perform custom drawing.
@@ -33,14 +35,12 @@ class GameView: UIView {
     var marioLeft = false
     var marioRight = false
     var marioCollision = false
+    var marioFire = false
     var marioVie = 3
     var timer = Timer()
-    var timerBullet = 0
-    
-    
-
     
     var tabBullet = Array<UIImageView>()
+    var tabMarioBullet = Array<UIImageView>()
     
     init(frame : CGRect, val : Int){
         super.init(frame: frame);
@@ -98,6 +98,14 @@ class GameView: UIView {
         btnContinue.isHidden = true
         btnContinue.addTarget(super.superview, action: #selector(ViewController.endGame), for: .touchUpInside)
         
+        marioBulletValue.tintColor = UIColor.red
+        marioBulletValue.thumbTintColor = UIColor.red
+        marioBulletValue.maximumValue = 25
+        marioBulletValue.minimumValue = 0
+        marioBulletValue.value = 25
+        marioBulletValue.isUserInteractionEnabled = false
+        marioBulletValue.transform = CGAffineTransform(rotationAngle: -1.5708);
+        
         
         self.generateEnvironement(f: frame.size)
         self.addSubview(btnG)
@@ -105,6 +113,8 @@ class GameView: UIView {
         self.addSubview(labelVie)
         self.addSubview(labelScore)
         self.addSubview(btnContinue)
+        self.addSubview(marioBulletValue)
+        
         self.addSubview(mario)
         
         marioX = Double((frame.size.width / 2) - (70.0/2.0))
@@ -143,22 +153,56 @@ class GameView: UIView {
                 marioX = Double(size.width) - 160
             }
         }
+        
+        if(marioRight && marioLeft){
+            marioFire = true
+        }else{
+            marioFire = false
+        }
+        
+        /* Mario tire des bouboules */
+        if(marioFire){
+            let tmpMarioFire = RocketBullet(marioFire: size.size, x: Int(marioX), y: Int(marioY+(70/2)))
+            var collision = false
+            for marioFire in tabMarioBullet{
+                let tmpBulletCol = (marioFire as! RocketBullet)
+                if((tmpMarioFire.y + 30) > tmpBulletCol.y && (tmpMarioFire.y + 30) < (tmpBulletCol.y + 30)){
+                    collision = true;
+                }
+                if(tmpBulletCol.y + 30 > tmpMarioFire.y && (tmpMarioFire.y + 30 ) > (tmpBulletCol.y + 30)){
+                    collision = true;
+                }
+            }
+            if(collision == false && marioBulletValue.value > 0){
+                //NSLog("COLLISION")
+                marioBulletValue.value -= 1
+                tabMarioBullet.append(tmpMarioFire)
+                self.addSubview(tmpMarioFire)
+            }
+           
+        }
+        
+        
+        
         /* Ajouts de bullets */
-        if(tabBullet.count < NIVEAU && timerBullet == 0){
-            //timerBullet = 100
-            let  tmpRocket = RocketBullet(posRocket: size.size, deplacement : Int(DEPLACEMENT))
+        if(tabBullet.count < NIVEAU){
+            
+            let tmpRocket = RocketBullet(posRocket: size.size, deplacement : Int(DEPLACEMENT))
             //On estime qu'il peut y avoir une collision
             var collision = false
             for bulletCol in tabBullet{
                 let tmpBulletCol = (bulletCol as! RocketBullet)
-                if((tmpRocket.x + 40) > tmpBulletCol.x && (tmpRocket.x + 40) < (tmpBulletCol.x + 40) ){
+                if((tmpRocket.y + 40) > tmpBulletCol.y && (tmpRocket.y + 40) < (tmpBulletCol.y + 40) ){
                     collision = true;
+                    NSLog("COLLISION")
                 }
-                if(tmpBulletCol.x + 40 > tmpRocket.x && (tmpRocket.x + 40 ) > (tmpBulletCol.x + 40)){
+                if(tmpBulletCol.y + 40 > tmpRocket.y && (tmpRocket.y + 40 ) > (tmpBulletCol.y + 40)){
                     collision = true;
+                    NSLog("COLLISION")
                 }
             }
             if(collision == false){
+                //NSLog("COLLISION")
                 tabBullet.append(tmpRocket)
                 self.addSubview(tmpRocket)
             }
@@ -171,7 +215,10 @@ class GameView: UIView {
             (bullet as! RocketBullet).changeLocation()
         }
         
-        
+        /* Génération des déplacements des bouboules */
+        for bouboule in tabMarioBullet{
+            (bouboule as! RocketBullet).changeLocationFire()
+        }
         
         /* Vérification collision avec Mario */
         var collision = false
@@ -236,7 +283,14 @@ class GameView: UIView {
             
             let tmpBullet = (bullet as! RocketBullet)
 
-            if (tmpBullet.y > Double(size.size.height+50)){ //Hors écran
+            if (tmpBullet.life <= 0){
+                tabBullet.remove(at: i)
+                bullet.removeFromSuperview();
+                i -= 1;
+                nbBulletTotal += 1
+                labelScore.text = String(format: "  Score : %d", nbBulletTotal)
+            }
+            if (tmpBullet.y > Double(size.size.height+100)){ //Hors écran
                 tabBullet.remove(at: i)
                 bullet.removeFromSuperview();
                 i -= 1;
@@ -257,15 +311,79 @@ class GameView: UIView {
                     if(tmpBulletCol.x < tmpBullet.x + 40){
                         tmpBulletCol.changeXaxis()
                     }
-                    
-                    
-                    //if((tmpBulletCol.x + 40)< tmpBulletCol.x || (tmpBullet.x + 40)< tmpBulletCol.x  )
                 }
             }
             
             i += 1
+        }
+        
+        i = 0
+        
+        /* Vérification des bouboules hors de l'écran */
+        for bullet in tabMarioBullet{
+            let tmpBullet = (bullet as! RocketBullet)
+
+            if (tmpBullet.y < Double(-100)){ //Hors écran
+                tabMarioBullet.remove(at: i)
+                bullet.removeFromSuperview();
+                i -= 1
+            }
+            i += 1
+        }
+        /* Vérification entre bullet et bouboules */
+        i = 0
+        for bullet in tabMarioBullet{
+            let b = (bullet as! RocketBullet)
+            if(b.explosion == true && b.tooManyTime <= 0){
+                tabMarioBullet.remove(at: i)
+                b.removeFromSuperview()
+                i -= 1
+            }else if (b.explosion){
+                b.tooManyTime -= 1
+                print("Val : %d",b.tooManyTime)
+            }
+            
+            for bulletCol in tabBullet{
+                collision = false
+                let bt = (bulletCol as! RocketBullet)
+                
+                if((b.y + 10) > bt.y && (b.y + 10) < (bt.y + 10)){
+                    if(b.x >= bt.x && b.x < (bt.x+50) ){
+                        collision = true;
+                        NSLog("HERE")
+                    }else if(b.x < bt.x && b.x+30 > bt.x && b.x + 30 < bt.x + 50){
+                        collision = true;
+                        NSLog("HERE")
+                    }
+                }
+                if(bt.y + 10 > b.y && (b.y + 10 ) > (bt.y + 10)){
+                    if(b.x >= bt.x && b.x < (bt.x+50) ){
+                        collision = true;
+                        NSLog("PAS ICI")
+                    }else if(b.x < bt.x && b.x+30 > bt.x && b.x + 30 < bt.x + 50){
+                        collision = true;
+                        NSLog("HERE")
+                    }
+                }
+                
+                
+                if(collision)
+                {
+                    b.explosionFire()
+                    bt.kaboom()
+                }
+            }
+            i += 1
+        }
+        
+        
+        if(nbBulletTotal % 5 == 0){
+            
+            marioBulletValue.value += 0.10
+            
             
         }
+        
         
         /* Mise en place de l'affichage */
         self.DessineDansFormat(f: size.size)
@@ -283,6 +401,7 @@ class GameView: UIView {
     func DessineDansFormat(f : CGSize) -> Void {
         marioY = (Double(f.height) - 70)
         mario.frame = CGRect(x: CGFloat(marioX), y: CGFloat(marioY), width: 70, height: 70)
+        
         btnG.frame = CGRect(x: 0, y: 0, width: f.width/2, height: f.height)
         btnD.frame = CGRect(x: f.width/2, y: 0, width: f.width/2, height: f.height)
         
@@ -294,12 +413,34 @@ class GameView: UIView {
                                     y: Int(myBullet.y)-50,
                                     width: 50,
                                     height: 50)
+            if(myBullet.bonus == true){
+                myBullet.transform = CGAffineTransform(rotationAngle: -1.58)
+            }
+        }
+        
+        for bullet in tabMarioBullet{
+            let myBullet =  (bullet as! RocketBullet)
             
+            if(myBullet.explosion == true){
+                myBullet.frame = CGRect(x: Int(myBullet.x)-100,
+                                        y: Int(myBullet.y)-100,
+                                        width: 100,
+                                        height: 100)
+            }else{
+                
+                myBullet.frame = CGRect(x: Int(myBullet.x)-30,
+                                    y: Int(myBullet.y)-30,
+                                    width: 30,
+                                    height: 30)
+            }
         }
         
         labelVie.frame = CGRect(x: 10, y: 10, width: 100, height: 50)
         labelScore.frame = CGRect(x: 10, y: (10 + 60), width: 100, height: 50)
         btnContinue.frame = CGRect(x: f.width - 110, y: 10, width: 100, height: 50)
+        
+        marioBulletValue.frame = CGRect(x:f.width - 70, y: 70, width : 50,height: (f.height - 80))
+
         
     }
     
@@ -389,5 +530,7 @@ class GameView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+   
     
 }
