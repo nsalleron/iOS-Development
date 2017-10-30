@@ -13,6 +13,7 @@ class GameView: UIView {
     
     
     var mario = UIImageView(image: UIImage(named: "mario"))
+    var imageStart = UIImageView(image: UIImage(named: "3"))
     let labelVie = UILabel()
     let labelScore = UILabel()
     let btnG = UIButton()
@@ -37,6 +38,7 @@ class GameView: UIView {
     var marioCollision = false
     var marioFire = false
     var marioVie = 3
+    var timerStart = 4
     var timer = Timer()
     
     var tabBullet = Array<UIImageView>()
@@ -55,8 +57,6 @@ class GameView: UIView {
         }else{
             self.DEPLACEMENT = Double(2 * NIVEAU)
         }
-        
-    
         
         self.backgroundColor = UIColor.white
         size = frame
@@ -106,7 +106,6 @@ class GameView: UIView {
         marioBulletValue.isUserInteractionEnabled = false
         marioBulletValue.transform = CGAffineTransform(rotationAngle: -1.5708);
         
-        
         self.generateEnvironement(f: frame.size)
         self.addSubview(btnG)
         self.addSubview(btnD)
@@ -114,8 +113,8 @@ class GameView: UIView {
         self.addSubview(labelScore)
         self.addSubview(btnContinue)
         self.addSubview(marioBulletValue)
-        
         self.addSubview(mario)
+        self.addSubview(imageStart)
         
         marioX = Double((frame.size.width / 2) - (70.0/2.0))
         
@@ -124,8 +123,36 @@ class GameView: UIView {
         self.addSubview(tabBullet[0])
         
         self.DessineDansFormat(f: frame.size)
-        timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(GameView.updateMainView), userInfo: nil, repeats: true)
         
+        timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(GameView.startTimer), userInfo: nil, repeats: true)
+        
+        
+       
+    }
+    
+    func startTimer(){
+        timer.invalidate()
+        sleep(1)
+        timerStart -= 1
+        imageStart.removeFromSuperview()
+        switch timerStart {
+        case 4:
+            imageStart = UIImageView(image: UIImage(named: "3"))
+        case 3:
+            imageStart = UIImageView(image: UIImage(named: "2"))
+        case 2:
+            imageStart = UIImageView(image: UIImage(named: "1"))
+        case 1:
+            imageStart = UIImageView(image: UIImage(named: "go"))
+        case 0:
+            timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(GameView.updateMainView), userInfo: nil, repeats: true)
+            return
+        default:
+            ()
+        }
+        self.addSubview(imageStart)
+        self.DessineDansFormat(f: size.size)
+        timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(GameView.startTimer), userInfo: nil, repeats: true)
        
     }
     
@@ -381,10 +408,7 @@ class GameView: UIView {
         
         
         if(nbBulletTotal % 5 == 0){
-            
             marioBulletValue.value += 0.03
-            
-            
         }
         
         
@@ -404,7 +428,7 @@ class GameView: UIView {
     func DessineDansFormat(f : CGSize) -> Void {
         marioY = (Double(f.height) - 70)
         mario.frame = CGRect(x: CGFloat(marioX), y: CGFloat(marioY), width: 70, height: 70)
-        
+        imageStart.frame = CGRect(x: f.width/2 - 100/2, y: f.height/2 - 100/2, width: 100, height: 100)
         btnG.frame = CGRect(x: 0, y: 0, width: f.width/2, height: f.height)
         btnD.frame = CGRect(x: f.width/2, y: 0, width: f.width/2, height: f.height)
         
