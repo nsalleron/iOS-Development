@@ -132,28 +132,41 @@ class GameView: UIView {
     
     func startTimer(){
         timer.invalidate()
-        sleep(1)
-        timerStart -= 1
-        imageStart.removeFromSuperview()
-        switch timerStart {
-        case 4:
-            imageStart = UIImageView(image: UIImage(named: "3"))
-        case 3:
-            imageStart = UIImageView(image: UIImage(named: "2"))
-        case 2:
-            imageStart = UIImageView(image: UIImage(named: "1"))
-        case 1:
-            imageStart = UIImageView(image: UIImage(named: "go"))
-        case 0:
-            timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(GameView.updateMainView), userInfo: nil, repeats: true)
-            return
-        default:
-            ()
-        }
-        self.addSubview(imageStart)
-        self.DessineDansFormat(f: size.size)
-        timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(GameView.startTimer), userInfo: nil, repeats: true)
-       
+        /*
+         *   Using a dispatch_after block is in most cases better than using sleep(time)
+         *   as the thread on which the sleep is performed is blocked from doing other work. 
+         *   when using dispatch_after the thread which is worked on does not get blocked so it can do other work in the meantime.
+         *   If you are working on the main thread of your application, using sleep(time) is bad for the user experience
+         *   of your app as the UI is unresponsive during that time.
+         *   Dispatch after schedules the execution of a block of code instead of freezing the thread:
+         *  Source : https://stackoverflow.com/questions/27517632/how-to-create-a-delay-in-swift
+         */
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.timerStart -= 1
+            self.imageStart.removeFromSuperview()
+            switch self.timerStart {
+            case 4:
+                self.imageStart = UIImageView(image: UIImage(named: "3"))
+            case 3:
+                self.imageStart = UIImageView(image: UIImage(named: "2"))
+            case 2:
+                self.imageStart = UIImageView(image: UIImage(named: "1"))
+            case 1:
+                self.imageStart = UIImageView(image: UIImage(named: "go"))
+            case 0:
+                self.timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(GameView.updateMainView), userInfo: nil, repeats: true)
+                return
+            default:
+                ()
+            }
+            self.addSubview(self.imageStart)
+            self.DessineDansFormat(f: self.size.size)
+            self.timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(GameView.startTimer), userInfo: nil, repeats: true)
+            
+
+        })
+        
     }
     
     override func draw(_ rect: CGRect) {
