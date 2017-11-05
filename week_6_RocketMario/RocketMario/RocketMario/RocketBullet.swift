@@ -19,16 +19,30 @@ class RocketBullet: UIImageView {
     var alongAxisY = 0.0
     var life = 10
     var size = CGSize()
-    var tooManyTime = 5;
+    var tooManyTime = 15;
     var typeRocket = 0
     var bonus = false
     var explosion = false
     var player: AVAudioPlayer?
     
     init(marioFire: CGSize, x: Int, y: Int){
+        var tailleMario = Double(Double(marioFire.height / 3) - 36.666667)
+        var tailleBoules = Double(Double(marioFire.height / 4) - 50.0)
+        
+        if tailleMario > 170 {
+            tailleMario = 140
+        }
+        if tailleBoules > 100 {
+            tailleBoules = 50
+        }
+
+        
+        
+        
+        
         super.init(image: #imageLiteral(resourceName: "fireball"))
         alongAxisY = 6
-        self.location(x: x+55, y: y)
+        self.location(x: x + Int(((tailleMario - tailleBoules) + tailleBoules/2)), y: y)
         self.transform = CGAffineTransform(rotationAngle: -1.5708);
         
         
@@ -86,7 +100,7 @@ class RocketBullet: UIImageView {
         self.deplacement = Double(deplacement)
         
         var tmpX = Int(arc4random_uniform(UInt32((posRocket.width))) + 151)
-        if (tmpX > 468){
+        if (CGFloat(tmpX) > (posRocket.width - 150)){
             tmpX -= tmpX - 150
         }
 

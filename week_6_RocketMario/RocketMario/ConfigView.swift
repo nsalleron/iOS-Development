@@ -31,7 +31,7 @@ class ConfigView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        btnAccueil.setTitle(" => Accueil", for: .normal)
+        btnAccueil.setTitle("Accueil", for: .normal)
         btnAccueil.setTitle("", for: .highlighted)
         btnAccueil.layer.cornerRadius = 10
         btnAccueil.clipsToBounds = true
@@ -67,10 +67,10 @@ class ConfigView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func DessineDansFormat(f : CGSize) -> Void {
        
-        let size = Int(f.width/3) - 30
+        let size = Int(f.width/5) - 30
         fondImage.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
         blurEffectView.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
-        btnAccueil.frame = CGRect(x: Int(f.width) - Int(Double(size)/1.4), y: Int(f.height) - size/2, width: 110, height: 70)
+        btnAccueil.frame = CGRect(x: Int(f.width) - Int(size) - 20, y: Int(f.height) - Int(size/2) - 20,  width: Int(size), height: Int(size/2))
         pickerDifficult.frame = CGRect(x: 0, y: 10, width: f.width, height: f.height)
 
     }

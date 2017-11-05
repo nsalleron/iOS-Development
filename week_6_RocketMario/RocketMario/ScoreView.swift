@@ -49,7 +49,7 @@ class ScoreView: UIView, UITextFieldDelegate {
         //NSLog("TAILLE : %d",self.tabScore.count);
         
         /* Configuration du premier button */
-        btnRetour.setTitle(" => Accueil", for: .normal)
+        btnRetour.setTitle("Accueil", for: .normal)
         btnRetour.setTitle("", for: .highlighted)
         btnRetour.layer.cornerRadius = 10
         btnRetour.clipsToBounds = true
@@ -99,7 +99,7 @@ class ScoreView: UIView, UITextFieldDelegate {
         
         /* Configuration du button recommencer */
         if(finDePartie){
-            btnRecommencer.setTitle(" <= Play ! ", for: .normal)
+            btnRecommencer.setTitle("Play !", for: .normal)
             btnRecommencer.setTitle("", for: .highlighted)
             btnRecommencer.layer.cornerRadius = 10
             btnRecommencer.clipsToBounds = true
@@ -147,25 +147,27 @@ class ScoreView: UIView, UITextFieldDelegate {
     }
     
     func DessineDansFormat(f : CGSize,editingTf : Bool) -> Void {
-        let size = Int(f.width/3) - 30
+        let size = Int(f.width/5) - 30
         if(editingTf == true){
             fondImage.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
             blurEffectView.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
-            btnRetour.frame = CGRect(x: Int(f.width) - Int(Double(size)/1.4), y: Int(f.height/2) - size/2, width: 110, height: 70)
+            btnRetour.frame = CGRect(x: Int(f.width) - Int(size) - 20, y: Int(f.height/2) - Int(size/2) - 20,  width: Int(size), height: Int(size/2))
             labelScoreAffichage.frame = CGRect(x: (f.width/2)-75, y: 90 - 200, width: 150, height: 140)
-            btnRecommencer.frame = CGRect(x: 10, y: Int(f.height/2) - size/2, width: 100, height: 70)
+            btnRecommencer.frame = CGRect(x: 10, y: Int(f.height/2) - Int(size/2) - 20,  width: Int(size), height: Int(size/2))
             if(finDePartie){
-                tfScore.frame = CGRect(x: Int(f.width/2)-200/2, y: Int(f.height/2) - size/2, width: 200, height: 70)
+                tfScore.frame = CGRect(x: Int(f.width/2) - (size*2)/2, y: Int(f.height/2) - Int(size/2) - 20,  width: Int(size*2), height: Int(size/2))
             }
         }else{
             fondImage.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
             blurEffectView.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
-            btnRetour.frame = CGRect(x: Int(f.width) - Int(Double(size)/1.4), y: Int(f.height) - size/2, width: 110, height: 70)
+            btnRetour.frame = CGRect(x: Int(f.width) - Int(size) - 20, y: Int(f.height) - Int(size/2) - 20,  width: Int(size), height: Int(size/2))
             labelScoreAffichage.frame = CGRect(x: (f.width/2)-75, y: 90, width: 150, height: 140)
-            btnRecommencer.frame = CGRect(x: 10, y: Int(f.height) - size/2, width: 100, height: 70)
+            btnRecommencer.frame = CGRect(x: 10, y: Int(f.height) - Int(size/2) - 20,  width: Int(size), height: Int(size/2))
+
             labelScore.frame = CGRect(x: (f.width/2)-75, y: 10, width: 150, height: 70)
             if(finDePartie){
-                tfScore.frame = CGRect(x: Int(f.width/2)-200/2, y: Int(f.height) - size/2, width: 200, height: 70)
+                tfScore.frame = CGRect(x: Int(f.width/2) - (size*2)/2, y: Int(f.height) - Int(size/2) - 20,  width: Int(size*2), height: Int(size/2))
+
             }
         }
     }

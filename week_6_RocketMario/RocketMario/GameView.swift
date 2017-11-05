@@ -14,8 +14,8 @@ class GameView: UIView {
     
     var mario = UIImageView(image: UIImage(named: "mario"))
     var imageStart = UIImageView(image: UIImage(named: "3"))
-    let labelVie = UILabel()
-    let labelScore = UILabel()
+    let labelVie = UIButton()
+    let labelScore = UIButton()
     let btnG = UIButton()
     let btnD = UIButton()
     let btnContinue = UIButton()
@@ -44,16 +44,20 @@ class GameView: UIView {
     var tabBullet = Array<UIImageView>()
     var tabMarioBullet = Array<UIImageView>()
     
+    var tailleMario = 0.0
+    var tailleEnemies = 0.0;
+    var tailleBoules = 0.0;
+    
     init(frame : CGRect, val : Int){
         super.init(frame: frame);
         //NSLog("Difficulty : %d",val)
         self.NIVEAU = val
         if(NIVEAU == 4){
-            self.DEPLACEMENT = 6.5
+            self.DEPLACEMENT = 6
         }else if(NIVEAU == 5){
-            self.DEPLACEMENT = 7
+            self.DEPLACEMENT = 8
         }else if(NIVEAU == 6){
-            self.DEPLACEMENT = 7.5
+            self.DEPLACEMENT = 10
         }else{
             self.DEPLACEMENT = Double(2 * NIVEAU)
         }
@@ -69,8 +73,8 @@ class GameView: UIView {
         btnD.addTarget(super.superview, action: #selector(ViewController.marioRightPosition), for: .touchDown)
         btnD.addTarget(super.superview, action: #selector(ViewController.marioRightPosition), for: .touchUpInside)
         
-        labelVie.text = String(format: "     Vie : %d", marioVie)
-        labelVie.textColor = UIColor.white
+        labelVie.setTitle(String(format: " Vie : %d ", marioVie),for: .normal)
+        labelVie.setTitleColor(UIColor.white, for: .normal)
         labelVie.layer.cornerRadius = 10
         labelVie.clipsToBounds = true
         labelVie.layer.borderWidth = 5
@@ -78,8 +82,8 @@ class GameView: UIView {
         labelVie.backgroundColor = UIColor.red
         
         
-        labelScore.text = String(format: "  Score : %d", nbBulletTotal)
-        labelScore.textColor = UIColor.white
+        labelScore.setTitle(String(format: "  Score : %d ", nbBulletTotal),for: .normal)
+        labelScore.setTitleColor(UIColor.white, for: .normal)
         labelScore.layer.cornerRadius = 10
         labelScore.clipsToBounds = true
         labelScore.layer.borderWidth = 5
@@ -87,16 +91,17 @@ class GameView: UIView {
         labelScore.backgroundColor = UIColor.red
        
         
-        btnContinue.setTitle(String(format: " Continue? ", marioVie), for: .normal)
-        btnContinue.setTitle(String(format: "  ", marioVie), for: .highlighted)
+        btnContinue.setTitle(String(format: " Boules ", marioVie), for: .normal)
+        //btnContinue.setTitle(String(format: "  ", marioVie), for: .highlighted)
         btnContinue.setTitleColor(UIColor.white, for: .normal)
         btnContinue.layer.cornerRadius = 10
         btnContinue.clipsToBounds = true
         btnContinue.layer.borderWidth = 5
         btnContinue.layer.borderColor = UIColor.black.cgColor
         btnContinue.backgroundColor = UIColor.red
-        btnContinue.isHidden = true
         btnContinue.addTarget(super.superview, action: #selector(ViewController.endGame), for: .touchUpInside)
+        btnContinue.isEnabled = false
+        
         
         marioBulletValue.tintColor = UIColor.red
         marioBulletValue.thumbTintColor = UIColor.red
@@ -116,7 +121,23 @@ class GameView: UIView {
         self.addSubview(mario)
         self.addSubview(imageStart)
         
-        marioX = Double((frame.size.width / 2) - (70.0/2.0))
+        
+        tailleMario = Double(Double(frame.size.height / 3) - 36.666667)
+        tailleEnemies = Double(Double(frame.size.height / 4) - 30.0)
+        tailleBoules = Double(Double(frame.size.height / 4) - 50.0)
+        
+        
+        if tailleMario > 170 {
+            tailleMario = 140
+        }
+        if tailleEnemies > 150 {
+            tailleEnemies = 100
+        }
+        if tailleBoules > 100 {
+            tailleBoules = 50
+        }
+        
+        marioX = Double(CGFloat(frame.size.width / 2) - CGFloat(tailleMario/2.0))
         
         tabBullet.append(RocketBullet(posRocket: frame.size, deplacement : Int(DEPLACEMENT)))
         
@@ -129,6 +150,8 @@ class GameView: UIView {
         
        
     }
+    
+    
     
     func startTimer(){
         timer.invalidate()
@@ -202,14 +225,14 @@ class GameView: UIView {
         
         /* Mario tire des bouboules */
         if(marioFire){
-            let tmpMarioFire = RocketBullet(marioFire: size.size, x: Int(marioX), y: Int(marioY+(70/2)))
+            let tmpMarioFire = RocketBullet(marioFire: size.size, x: Int(marioX), y: Int(marioY+(tailleMario/2)))
             var collision = false
             for marioFire in tabMarioBullet{
                 let tmpBulletCol = (marioFire as! RocketBullet)
-                if((tmpMarioFire.y + 30) > tmpBulletCol.y && (tmpMarioFire.y + 30) < (tmpBulletCol.y + 30)){
+                if((tmpMarioFire.y + tailleBoules) > tmpBulletCol.y && (tmpMarioFire.y + tailleBoules) < (tmpBulletCol.y + tailleBoules)){
                     collision = true;
                 }
-                if(tmpBulletCol.y + 30 > tmpMarioFire.y && (tmpMarioFire.y + 30 ) > (tmpBulletCol.y + 30)){
+                if(tmpBulletCol.y + tailleBoules > tmpMarioFire.y && (tmpMarioFire.y + tailleBoules ) > (tmpBulletCol.y + tailleBoules)){
                     collision = true;
                 }
             }
@@ -236,11 +259,11 @@ class GameView: UIView {
                 let tmpBulletCol = (bulletCol as! RocketBullet)
                 if((tmpRocket.y + 40) > tmpBulletCol.y && (tmpRocket.y + 40) < (tmpBulletCol.y + 40) ){
                     collision = true;
-                    NSLog("COLLISION")
+                    //NSLog("COLLISION")
                 }
                 if(tmpBulletCol.y + 40 > tmpRocket.y && (tmpRocket.y + 40 ) > (tmpBulletCol.y + 40)){
                     collision = true;
-                    NSLog("COLLISION")
+                    //NSLog("COLLISION")
                 }
             }
             if(collision == false){
@@ -269,24 +292,78 @@ class GameView: UIView {
             let tmpBulletCol = (bullet as! RocketBullet)
             
             collision = false
-            if((tmpBulletCol.y - 40) == marioY && tmpBulletCol.x > marioX && tmpBulletCol.x < (marioX + 70)){
+            
+            
+            
+            /*
+            
+            if((tmpBulletCol.y - 40) == marioY &&
+                tmpBulletCol.x > marioX &&
+                tmpBulletCol.x < (marioX + 70)){
+                collision = true
+            }
+            */
+            
+            /*
+             * C'est ce cas.
+             * [B]
+             *  [ M ]
+             */
+            if((tmpBulletCol.y - 40) == marioY && (marioX + tailleMario) > (tmpBulletCol.x + 50) && marioX  < (tmpBulletCol.x + 50)){
+                NSLog("CAS 1");
                 collision = true
             }
             
-            if((tmpBulletCol.y - 40) == marioY && (marioX + 70) > tmpBulletCol.x && (marioX + 70) < (tmpBulletCol.x + 50)){
+            /*
+             * C'est ce cas.
+             *     [B]
+             *  [ M ]
+             */
+            if((tmpBulletCol.y - 40) == marioY && (marioX + tailleMario) < (tmpBulletCol.x+50) && (marioX + tailleMario) > tmpBulletCol.x){
+                NSLog("CAS 2");
+                collision = true
+            }
+            
+            /* 
+            * C'est ce cas.
+            *   [B]
+            *  [ M ]
+            */
+            if((tmpBulletCol.y - 40) == marioY && (marioX + tailleMario) > tmpBulletCol.x && (marioX + tailleMario) < (tmpBulletCol.x + 50)){
+                 NSLog("CAS 3");
                  collision = true
             }
             
-            if((tmpBulletCol.y - 40 > marioY) && (tmpBulletCol.y - 40) < (marioY+70)
-                && tmpBulletCol.x > marioX && tmpBulletCol.x < (marioX + 70)){
+            /*
+            * C'est ce cas
+            * [   ]
+            * | M[B]
+            * [   ]
+            */
+            if((tmpBulletCol.y - 40 > marioY) && (tmpBulletCol.y - 40) < (marioY+tailleMario)
+                && tmpBulletCol.x > marioX && tmpBulletCol.x < (marioX + tailleMario)){
+                 NSLog("CAS 4");
                 collision = true
             }
             
-            if((tmpBulletCol.y - 40 > marioY) && (tmpBulletCol.y - 40) < (marioY+70)
-                && (marioX + 70) > tmpBulletCol.x && (marioX + 70) < (tmpBulletCol.x + 50)){
+            
+            /*
+             * C'est ce cas
+             * [   ]
+             *[B]M |
+             * [   ]
+             */
+            if((tmpBulletCol.y - 40 > marioY) && (tmpBulletCol.y - 40) < (marioY+tailleMario)
+                && (marioX) > (tmpBulletCol.x + 50) && (marioX + tailleMario) < (tmpBulletCol.x + 50)){
+                 NSLog("CAS 5");
                 collision = true
             }
-    
+            
+            if((tmpBulletCol.y - 40) > marioY && tmpBulletCol.y < marioY && tmpBulletCol.x > marioX && tmpBulletCol.x < (marioX + tailleMario)){
+                NSLog("CAS 6")
+                collision = true
+            }
+            
             if(collision){
                 tabBullet.remove(at: i)
                 tmpBulletCol.removeFromSuperview();
@@ -295,7 +372,7 @@ class GameView: UIView {
                 if(!marioCollision){
                     if(tmpBulletCol.bonus == true){
                         marioVie += 1
-                        labelVie.text = String(format: "     Vie : %d", marioVie)
+                        labelVie.setTitle(String(format: " Vie : %d ", marioVie),for: .normal)
                     }else{
                         marioVie -= 1
                         marioCollision = true
@@ -306,12 +383,14 @@ class GameView: UIView {
                         if(marioVie != 0){
                             Timer.scheduledTimer(timeInterval: Double(6/NIVEAU), target: self , selector: #selector(GameView.updateMario), userInfo: nil, repeats: false)
                         }else{
+                            btnContinue.setTitle(" Continue? ", for: .normal)
+                            btnContinue.setTitle("  ", for: .highlighted)
+                            btnContinue.isEnabled = true
                             timer.invalidate()
-                            btnContinue.isHidden = false
                             
                         }
                     }
-                    labelVie.text = String(format: "     Vie : %d", marioVie)
+                    labelVie.setTitle(String(format: " Vie : %d ", marioVie),for: .normal)
                     self.DessineDansFormat(f: size.size)
                 }
             }
@@ -331,17 +410,17 @@ class GameView: UIView {
                 bullet.removeFromSuperview();
                 i -= 1;
                 nbBulletTotal += 1
-                labelScore.text = String(format: "  Score : %d", nbBulletTotal)
+                labelScore.setTitle(String(format: "  Score : %d ", nbBulletTotal),for: .normal)
             }
             if (tmpBullet.y > Double(size.size.height+100)){ //Hors écran
                 tabBullet.remove(at: i)
                 bullet.removeFromSuperview();
                 i -= 1;
                 nbBulletTotal += 1
-                labelScore.text = String(format: "  Score : %d", nbBulletTotal)
+                labelScore.setTitle(String(format: "  Score : %d ", nbBulletTotal),for: .normal)
                 //NSLog("REMOVE")
             }else if (tmpBullet.x  < 100) ||         //Collision contre les murs
-                    tmpBullet.x > (Double(size.size.width )-100.0){
+                    tmpBullet.x > (Double(size.size.width ) - 100.0){
                     tmpBullet.changeXaxis();
             }else{                                  //Collision entre les éléments
                 for bulletCol in tabBullet{
@@ -393,24 +472,24 @@ class GameView: UIView {
                 if((b.y + 10) > bt.y && (b.y + 10) < (bt.y + 10)){
                     if(b.x >= bt.x && b.x < (bt.x+50) ){
                         collision = true;
-                        NSLog("HERE")
+                       
                     }else if(b.x < bt.x && b.x+30 > bt.x && b.x + 30 < bt.x + 50){
                         collision = true;
-                        NSLog("HERE")
+                        
                     }
                 }
                 if(bt.y + 10 > b.y && (b.y + 10 ) > (bt.y + 10)){
                     if(b.x >= bt.x && b.x < (bt.x+50) ){
                         collision = true;
-                        NSLog("PAS ICI")
+                       
                     }else if(b.x < bt.x && b.x+30 > bt.x && b.x + 30 < bt.x + 50){
                         collision = true;
-                        NSLog("HERE")
+                         
                     }
                 }
                 
                 
-                if(collision)
+                if(collision && b.tooManyTime > 0)
                 {
                     b.explosionFire()
                     bt.kaboom()
@@ -439,51 +518,52 @@ class GameView: UIView {
     }
     
     func DessineDansFormat(f : CGSize) -> Void {
-        marioY = (Double(f.height) - 70)
-        mario.frame = CGRect(x: CGFloat(marioX), y: CGFloat(marioY), width: 70, height: 70)
+        
+        marioY = (Double(f.height) - tailleMario)
+        mario.frame = CGRect(x: CGFloat(marioX), y: CGFloat(marioY), width: CGFloat(tailleMario), height: CGFloat(tailleMario))
         imageStart.frame = CGRect(x: f.width/2 - 100/2, y: f.height/2 - 100/2, width: 100, height: 100)
         btnG.frame = CGRect(x: 0, y: 0, width: f.width/2, height: f.height)
         btnD.frame = CGRect(x: f.width/2, y: 0, width: f.width/2, height: f.height)
         
-        
+        /* Les ennemies */
         for bullet in tabBullet{
             let myBullet =  (bullet as! RocketBullet)
             
-            myBullet.frame = CGRect(x: Int(myBullet.x)-50,
-                                    y: Int(myBullet.y)-50,
-                                    width: 50,
-                                    height: 50)
+            myBullet.frame = CGRect(x: myBullet.x-tailleEnemies,
+                                    y: myBullet.y-tailleEnemies,
+                                    width: tailleEnemies,
+                                    height: tailleEnemies)
             if(myBullet.bonus == true){
                 myBullet.transform = CGAffineTransform(rotationAngle: -1.58)
             }
         }
-        
+        /* les boules */
         for bullet in tabMarioBullet{
             let myBullet =  (bullet as! RocketBullet)
             
             if(myBullet.explosion == true){
-                myBullet.frame = CGRect(x: Int(myBullet.x)-100,
-                                        y: Int(myBullet.y)-100,
-                                        width: 100,
-                                        height: 100)
+                myBullet.frame = CGRect(x: myBullet.x-2*tailleEnemies,
+                                        y: myBullet.y-2*tailleEnemies,
+                                        width: 2*tailleEnemies,
+                                        height: 2*tailleEnemies)
             }else{
                 
-                myBullet.frame = CGRect(x: Int(myBullet.x)-30,
-                                    y: Int(myBullet.y)-30,
-                                    width: 30,
-                                    height: 30)
+                myBullet.frame = CGRect(x: myBullet.x-tailleBoules,
+                                    y: myBullet.y-tailleBoules,
+                                    width: tailleBoules,
+                                    height: tailleBoules)
             }
         }
         
-        labelVie.frame = CGRect(x: 10, y: 10, width: 100, height: 50)
-        labelScore.frame = CGRect(x: 10, y: (10 + 60), width: 100, height: 50)
-        btnContinue.frame = CGRect(x: f.width - 110, y: 10, width: 100, height: 50)
+        labelVie.frame = CGRect(x: 10, y: 10, width: 2*tailleEnemies, height: tailleEnemies)
+        labelScore.frame = CGRect(x: 10, y: (tailleEnemies + 20), width: 2*tailleEnemies, height: tailleEnemies)
+        btnContinue.frame = CGRect(x: Double(f.width) - 2*tailleEnemies - 10.0, y: 10, width: 2*tailleEnemies, height: tailleEnemies)
         
-        marioBulletValue.frame = CGRect(x:f.width - 70, y: 70, width : 50,height: (f.height - 80))
+        marioBulletValue.frame = CGRect(x:Double(f.width) - tailleMario, y: tailleMario, width : tailleEnemies,height: Double(f.height) - tailleMario)
+        
 
         
     }
-    
     
     func generateEnvironement(f : CGSize) -> Void{
         let Hauteur = f.height / 20
@@ -494,27 +574,24 @@ class GameView: UIView {
         let grass = UIImageView(image: #imageLiteral(resourceName: "anime_grass4"))
         
         var effectV = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongVerticalAxis)
-        effectV.minimumRelativeValue = -70
-        effectV.maximumRelativeValue = 70
+        effectV.minimumRelativeValue = -tailleMario
+        effectV.maximumRelativeValue = tailleMario
         
         var effectH = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongHorizontalAxis)
-        effectH.minimumRelativeValue = -70
-        effectH.maximumRelativeValue = 70
+        effectH.minimumRelativeValue = -tailleMario
+        effectH.maximumRelativeValue = tailleMario
         
         grass.addMotionEffect(effectV)
         grass.addMotionEffect(effectH)
-        grass.frame = CGRect(x: -70, y: -70, width: f.width+100, height: f.height+100)
+        grass.frame = CGRect(x: -tailleMario, y: -tailleMario, width: Double(f.width+100), height: Double(f.height+100))
         self.addSubview(grass)
-       
-        
-        
-        
         
         while (i != 21) {
             var randomPositionStart = arc4random_uniform(UInt32(5 - 1)) + 1
             
             effectV = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongVerticalAxis)
             effectH = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongHorizontalAxis)
+            
             effectH.minimumRelativeValue = -1 * Int((arc4random_uniform(UInt32(70 - 30)) + 30))
             effectH.maximumRelativeValue = 1 * (arc4random_uniform(UInt32(70 - 30)) + 30)
             effectV.minimumRelativeValue = -1  * Int((arc4random_uniform(UInt32(70 - 30)) + 30))
@@ -524,6 +601,7 @@ class GameView: UIView {
             var imgtemp = UIImageView(image: UIImage(named: NSString.init(format: "t%d",randomPositionStart) as String))
             imgtemp.addMotionEffect(effectH)
             imgtemp.addMotionEffect(effectV)
+            
             self.addSubview(imgtemp)
             if(side1){
                 imgtemp.frame = CGRect(x: -50 + Int(arc4random_uniform(UInt32(25 - 10))+10),

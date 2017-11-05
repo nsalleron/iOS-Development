@@ -76,11 +76,11 @@ class HomeView: UIView {
     }
     
     func DessineDansFormat(f : CGSize) -> Void {
-        let size = Int(f.width/3) - 30
+        let size = Int(f.width/5) - 30
         fondImage.frame = CGRect(x: 0, y: 0, width: f.width, height: f.height)
-        btnPlay.frame = CGRect(x: Int(f.width) - Int(Double(size)/1.5), y: Int(f.height) - size/2, width: 100, height: 70)
-        btnScore.frame = CGRect(x: 140, y: Int(f.height) - size/2, width: 100, height: 70)
-        btnConfiguration.frame = CGRect(x: 20 , y: Int(f.height) - size/2, width: 100, height: 70)
+        btnPlay.frame = CGRect(x: Int(f.width) - Int(size) - 20, y: Int(f.height) - Int(size/2) - 20,  width: Int(size), height: Int(size/2))
+        btnScore.frame = CGRect(x: 40 + size, y: Int(f.height) - Int(size/2) - 20, width: Int(size), height: Int(size/2))
+        btnConfiguration.frame = CGRect(x: 20 , y: Int(f.height) - Int(size/2) - 20, width: Int(size), height: Int(size/2))
         
     }
     

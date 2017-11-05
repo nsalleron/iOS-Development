@@ -96,10 +96,13 @@ class ViewController: UIViewController {
         self.view = cv
     }
     
-    public func endGame(){
+    func endGame(){
+        
         let view = self.view as! GameView
+        /* Pas propre du tout */
         tabJoueurs.append("!???")
         tabScore.append(String(format: "%d", view.nbBulletTotal))
+        
         let sv = ScoreView(frame: UIScreen.main.bounds,tabJoueur: tabJoueurs, tabScore: tabScore, finDePartie: true)
         self.view = sv
         endSound()
@@ -156,7 +159,7 @@ class ViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        return .landscape
+        return .all
     }
 
     override func didReceiveMemoryWarning() {
@@ -164,6 +167,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        if ((self.view as? GameView) != nil) {
+            (self.view as! GameView).DessineDansFormat(f: size)
+        }else if ((self.view as? ScoreView) != nil) {
+            if((self.view as! ScoreView).finDePartie == true){
+                (self.view as! ScoreView).DessineDansFormat(f: size, editingTf: true)
+            }else{
+                (self.view as! ScoreView).DessineDansFormat(f: size, editingTf: true)
+            }
+        }else if ((self.view as? HomeView) != nil) {
+            (self.view as! HomeView).DessineDansFormat(f: size)
+        }else if ((self.view as? ConfigView) != nil) {
+            (self.view as! ConfigView).DessineDansFormat(f: size)
+        }
+    }
 
 }
 
