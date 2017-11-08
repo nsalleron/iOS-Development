@@ -1,0 +1,15 @@
+/* 
+  mesmessages.strings
+  iSouvenir
+
+  Created by Nicolas Salleron on 06/11/2017.
+  Copyright © 2017 Nicolas Salleron. All rights reserved.
+*/
+"txt-Visu" = "Visualisation";
+"txt-Plan" = "Plan";
+"txt-Satellite" = "Satellite";
+"txt-Mixte" = "Mixte";
+"txt-Epingle" = "Epingle";
+"txt-Pos"= "Positionné sur";
+"txt-Sur" = "sur";
+"txt-Contact" = "Pas de contact";

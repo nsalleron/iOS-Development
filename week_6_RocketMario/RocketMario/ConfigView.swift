@@ -83,8 +83,6 @@ class ConfigView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         return 1
     }
     
-   
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return valDifficult.count
     }
