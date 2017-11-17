@@ -41,5 +41,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSCameraUsageDescription</key>
+    <string> Pour t'espionner pendant la nuit </string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Pour t'écouter :)</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>C'est pour tout savoir de toi </string>
+
 </dict>
 </plist>
