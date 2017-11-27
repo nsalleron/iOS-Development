@@ -62,8 +62,18 @@ class DetailView: UIView,UIScrollViewDelegate{
     func updateView(cel : UneCellule){
         tf.text = cel.label
         segPrio.selectedSegmentIndex = cel.priorite
-        self.image.addSubview(UIImageView(image: cel.image))
-        self.image.setZoomScale(0.2, animated: true)
+        if(cel.image != nil){
+            self.image.addSubview(UIImageView(image: cel.image))
+            self.image.setZoomScale(0.2, animated: true)
+        }else{
+            if(self.image.subviews.count > 0){
+                for image in self.image.subviews{
+                    image.removeFromSuperview()
+                }
+            }
+        }
+        self.setNeedsDisplay()
+        
     }
     
     

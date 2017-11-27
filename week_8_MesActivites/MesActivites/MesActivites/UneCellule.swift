@@ -14,7 +14,7 @@ class UneCellule: NSObject {
     var detail = ""
     var priorite = 0
     var prioImage = UIImageView()
-    var image : UIImage?
+    var image : UIImage? = nil
     
     init(l : String, priorite: Int){
         label = l;
