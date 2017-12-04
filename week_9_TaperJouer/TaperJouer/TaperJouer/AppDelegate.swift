@@ -24,7 +24,9 @@ enum terminalType {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var musiqueController : ChangeController?
+    var historyController : HistoryController?
+    var tab = UITabBarController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -54,7 +56,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch monterminal {
         case .iphone35, .iphone40, .iphone47, .iphone55:
             //Controller classique
-            window?.rootViewController = HistoryController(style: .plain)
+            /*Configuration des controller */
+            musiqueController = ChangeController()
+            historyController = HistoryController(style: .plain)
+            
+            musiqueController?.history = historyController
+            /* Configuration du tab */
+            tab.viewControllers = [musiqueController!,historyController!]
+            tab.selectedIndex = 0
+            window?.rootViewController = tab
         default:
             let svc = UISplitViewController()
             let historyView = HistoryController(style: .plain)
@@ -63,16 +73,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let dnvc = UINavigationController(rootViewController: changeView)
             
             
-            /* Pour la communication dans les deux sens */
-            historyView.svc = svc
-            historyView.termType = monterminal
-            historyView.dvc = changeView
-            historyView.mnvc = mnvc
+            /* Pour la communication */
             
-            
-            changeView.svc = svc
+            changeView.history = historyView
             changeView.termType = monterminal
-            changeView.mvc = historyView
+          
             
             svc.viewControllers = [mnvc,dnvc]
             svc.delegate = historyView

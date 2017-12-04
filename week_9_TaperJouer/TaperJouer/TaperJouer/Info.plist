@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSAppleMusicUsageDescription</key>
+    <string>C'est pour mieux vendre tes gôuts musicaux </string>
 </dict>
 </plist>
