@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A652CB521FD88A1E00D124FD /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A652CB511FD88A1E00D124FD /* mainView.swift */; };
 		A68F071C1FB0D2150010EA6D /* mesmessages.strings in Resources */ = {isa = PBXBuildFile; fileRef = A68F071E1FB0D2150010EA6D /* mesmessages.strings */; };
 		A6FABED11FB0571B00E18ACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FABED01FB0571B00E18ACE /* AppDelegate.swift */; };
 		A6FABED31FB0571B00E18ACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FABED21FB0571B00E18ACE /* ViewController.swift */; };
 		A6FABED61FB0571B00E18ACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FABED41FB0571B00E18ACE /* Main.storyboard */; };
 		A6FABED81FB0571B00E18ACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FABED71FB0571B00E18ACE /* Assets.xcassets */; };
 		A6FABEDB1FB0571B00E18ACE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FABED91FB0571B00E18ACE /* LaunchScreen.storyboard */; };
-		A6FABEE31FB0573000E18ACE /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FABEE21FB0573000E18ACE /* mainView.swift */; };
 		A6FABEE51FB0700C00E18ACE /* MonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FABEE41FB0700C00E18ACE /* MonAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A652CB511FD88A1E00D124FD /* mainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
 		A68F071D1FB0D2150010EA6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/mesmessages.strings; sourceTree = "<group>"; };
 		A68F07201FB0D2790010EA6D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/mesmessages.strings; sourceTree = "<group>"; };
 		A68F07211FB0D2AF0010EA6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/mesmessages.strings; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		A6FABED71FB0571B00E18ACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6FABEDA1FB0571B00E18ACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6FABEDC1FB0571B00E18ACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6FABEE21FB0573000E18ACE /* mainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mainView.swift; path = ../mainView.swift; sourceTree = "<group>"; };
 		A6FABEE41FB0700C00E18ACE /* MonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +62,7 @@
 		A6FABECF1FB0571B00E18ACE /* iSouvenir */ = {
 			isa = PBXGroup;
 			children = (
-				A6FABEE21FB0573000E18ACE /* mainView.swift */,
+				A652CB511FD88A1E00D124FD /* mainView.swift */,
 				A6FABED01FB0571B00E18ACE /* AppDelegate.swift */,
 				A6FABED21FB0571B00E18ACE /* ViewController.swift */,
 				A6FABED41FB0571B00E18ACE /* Main.storyboard */,
@@ -150,9 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6FABEE31FB0573000E18ACE /* mainView.swift in Sources */,
 				A6FABED31FB0571B00E18ACE /* ViewController.swift in Sources */,
 				A6FABED11FB0571B00E18ACE /* AppDelegate.swift in Sources */,
+				A652CB521FD88A1E00D124FD /* mainView.swift in Sources */,
 				A6FABEE51FB0700C00E18ACE /* MonAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
