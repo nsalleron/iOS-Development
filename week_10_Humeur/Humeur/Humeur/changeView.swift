@@ -65,7 +65,7 @@ class changeView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         currentDifficult = row + 1
-        //humeurService?.stop()
+        humeurService?.stop()
         cel?.humeur = valDifficult[row]
         humeurService = NetService(domain: "local", type: "_change._tcp.", name: (cel?.label)!+";"+(cel?.humeur)!, port: 9090)
         humeurService?.delegate = connectedController

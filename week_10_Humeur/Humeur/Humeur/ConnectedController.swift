@@ -193,27 +193,9 @@ class ConnectedController: UITableViewController,UISplitViewControllerDelegate,N
         //contenu[0][0].changeHumeur(l: sender.name.components(separatedBy: ";")[1])
     }
     
-    
-    func netServiceDidStop(_ sender: NetService) {
-        print("didStop")
-        if(sender.type == "_change._tcp."){
-            var i = 0
-            for str in contenu[0]{
-                if(str.label == sender.name.components(separatedBy: ";")[0]){
-                    contenu[0].remove(at: i)
-                    tableView.reloadData()
-                }
-                i += 1
-            }
-        }
-    }
-    
-    
-    
     func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
         NSLog("Passage de type \(service.type)")
         NSLog("Name : \(service.name)")
-        NSLog("More : \(moreComing)")
         if service.type == "_change._tcp." {
             var i = 0
             if( contenu[0].count == 0){
@@ -221,22 +203,18 @@ class ConnectedController: UITableViewController,UISplitViewControllerDelegate,N
                 contenu[0].append(UneCellule(l: service.name.components(separatedBy: ";")[0]))
                 contenu[0][0].changeHumeur(l: service.name.components(separatedBy: ";")[1])
             }else{
-                print("Count : \(contenu[0].count)")
-                
-                lockQueue.sync() {
-                    while i < contenu[0].count {
-                        print("Affichage \(i) : \(contenu[0][i].label);\(contenu[0][i].humeur)\n")
-                        if(contenu[0][i].label != service.name.components(separatedBy: ";")[0]){
-                            if(contenu[0].count < 3){
-                                contenu[0].append(UneCellule(l: service.name.components(separatedBy: ";")[0]))
-                                contenu[0][contenu[0].count - 1 ].changeHumeur(l: service.name.components(separatedBy: ";")[1])
-                            }
-                            
-                        }
-                        i += 1
+                var bTrouve = false
+                while i < contenu[0].count {
+                    print("Affichage \(i) : \(contenu[0][i].label);\(contenu[0][i].humeur)\n")
+                    if(contenu[0][i].label == service.name.components(separatedBy: ";")[0]){
+                        bTrouve = true
                     }
+                    i += 1
                 }
-                
+                if (bTrouve == false){
+                    contenu[0].append(UneCellule(l: service.name.components(separatedBy: ";")[0]))
+                    contenu[0][contenu[0].count - 1 ].changeHumeur(l: service.name.components(separatedBy: ";")[1])
+                }
             }
         }else{
             print("Passage else")
@@ -258,7 +236,7 @@ class ConnectedController: UITableViewController,UISplitViewControllerDelegate,N
         }
     }
 
-    /*
+    
     override func viewDidDisappear(_ animated: Bool) {
         humeurService?.stop()
         humeurBrowser?.stop()
@@ -270,7 +248,7 @@ class ConnectedController: UITableViewController,UISplitViewControllerDelegate,N
         humeurBrowser?.stop()
         NSLog("deinit")
     }
-    */
+    
     
 }
 

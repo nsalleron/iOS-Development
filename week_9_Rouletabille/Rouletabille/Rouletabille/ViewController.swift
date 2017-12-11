@@ -71,12 +71,10 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
         self.becomeFirstResponder()
         
         
-        /* UserAcceleration */
+        
         if(crMtnMngr.isDeviceMotionAvailable){
             if(crMtnMngr.isAccelerometerAvailable){
-                //crMtnMngr.accelerometerUpdateInterval = 0.1
                 crMtnMngr.startAccelerometerUpdates()
-               
             }
         }
         
@@ -449,12 +447,14 @@ class ViewController: UIViewController,AVAudioPlayerDelegate {
 
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         tabFondIndex = (tabFondIndex+1)%4
-        self.view = tabFond[tabFondIndex]
-        self.view.addSubview(bille)
-        self.view.addSubview(etoile)
-        self.view.addSubview(labelSecond)
-        self.view.addSubview(scoreLabel)
-        self.view.addSubview(scoreImage)
+        ecran.addSubview(tabFond[tabFondIndex])
+        ecran.addSubview(scoreLabel)
+        ecran.addSubview(scoreImage)
+        ecran.addSubview(labelSecond)
+        ecran.addSubview(etoile)
+        ecran.addSubview(bille)
+        ecran.addSubview(screenEnd)
+        ecran.addSubview(screenStart)
     }
 
     
