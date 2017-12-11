@@ -16,14 +16,13 @@ class ConnectedController: UITableViewController,UISplitViewControllerDelegate,N
     private var currentSection : Int = 0
     private var currentRow : Int = 0
     
+    let lockQueue = DispatchQueue.init(label: "lock")
+    
     public var contenu = [[UneCellule]]()
     var compteur = 1
     var name : String?
     
     /* NetService */
-    var discoverService : NetService?
-    var discoverBrowser : NetServiceBrowser?
-    
     var humeurService : NetService?
     var humeurBrowser : NetServiceBrowser?
     
@@ -63,16 +62,6 @@ class ConnectedController: UITableViewController,UISplitViewControllerDelegate,N
         
         
         /* Préparation du service Note: 1 seul service suffi*/
-        discoverService = NetService(domain: "local", type: "_humeur._tcp.", name: name!, port: 9090)
-        discoverService?.delegate = self
-        discoverService?.includesPeerToPeer = true
-        discoverService?.publish()
-        
-        discoverBrowser = NetServiceBrowser()
-        discoverBrowser?.delegate = self
-        discoverBrowser?.searchForServices(ofType: "_humeur._tcp.", inDomain: "local")
-        
-   
         humeurService = NetService(domain: "local", type: "_change._tcp.", name: name!+";"+"happy", port: 9090)
         humeurService?.delegate = self
         humeurService?.includesPeerToPeer = true
@@ -124,12 +113,12 @@ class ConnectedController: UITableViewController,UISplitViewControllerDelegate,N
         return 0
     }
     
-    
+    /*
     func addCell(music : String){
         contenu[0].append(UneCellule(l: music))
         tableView.reloadData()
     }
-    
+    */
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -198,63 +187,90 @@ class ConnectedController: UITableViewController,UISplitViewControllerDelegate,N
         print("didendEditiingRowAt")
     }
 
-    
-    func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
-        NSLog("Passage de type \(service.type)")
-        if service.type == "_humeur._tcp." {
-            var i = 0
-            if(contenu[0].count == 0){
-                contenu[0].append(UneCellule(l: service.name))
-            }else{
-                for str in contenu[0]{
-                    NSLog("\(service.name)")
-                    if(str.label != service.name){
-                        contenu[0].append(UneCellule(l: service.name))
-                    }
-                    i += 1
-                }
-            }
-            
-            
-        }
-        if service.type == "_change._tcp." {
-            var i = 0
-            for str in contenu[0]{
-                if(str.label == service.name.components(separatedBy: ";")[0]){
-                    let c = contenu[0][i]
-                    c.changeHumeur(l: service.name.components(separatedBy: ";")[1])
-                    
-                    NSLog("Humeur : \(c.humeur)")
-                    
-                }
-                i += 1
-            }
-        }
-        tableView.reloadData()
-
+    func netServiceDidPublish(_ sender: NetService) {
+        print("didPublish")
+        //contenu[0].append(UneCellule(l: sender.name.components(separatedBy: ";")[0]))
+        //contenu[0][0].changeHumeur(l: sender.name.components(separatedBy: ";")[1])
     }
     
-    func netServiceBrowser(_ browser: NetServiceBrowser, didRemove service: NetService, moreComing: Bool){
-         NSLog("Fin service")
-        if(service.type == "_humeur._tcp."){
+    
+    func netServiceDidStop(_ sender: NetService) {
+        print("didStop")
+        if(sender.type == "_change._tcp."){
             var i = 0
             for str in contenu[0]{
-                if(str.label == service.name){
+                if(str.label == sender.name.components(separatedBy: ";")[0]){
                     contenu[0].remove(at: i)
                     tableView.reloadData()
                 }
                 i += 1
             }
         }
-        
-        
+    }
+    
+    
+    
+    func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
+        NSLog("Passage de type \(service.type)")
+        NSLog("Name : \(service.name)")
+        NSLog("More : \(moreComing)")
+        if service.type == "_change._tcp." {
+            var i = 0
+            if( contenu[0].count == 0){
+                print("contenu était = 0")
+                contenu[0].append(UneCellule(l: service.name.components(separatedBy: ";")[0]))
+                contenu[0][0].changeHumeur(l: service.name.components(separatedBy: ";")[1])
+            }else{
+                print("Count : \(contenu[0].count)")
+                
+                lockQueue.sync() {
+                    while i < contenu[0].count {
+                        print("Affichage \(i) : \(contenu[0][i].label);\(contenu[0][i].humeur)\n")
+                        if(contenu[0][i].label != service.name.components(separatedBy: ";")[0]){
+                            if(contenu[0].count < 3){
+                                contenu[0].append(UneCellule(l: service.name.components(separatedBy: ";")[0]))
+                                contenu[0][contenu[0].count - 1 ].changeHumeur(l: service.name.components(separatedBy: ";")[1])
+                            }
+                            
+                        }
+                        i += 1
+                    }
+                }
+                
+            }
+        }else{
+            print("Passage else")
+        }
+        tableView.reloadData()
+
+    }
+    
+    func netServiceBrowser(_ browser: NetServiceBrowser, didRemove service: NetService, moreComing: Bool){
+        if(service.type == "_change._tcp."){
+            var i = 0
+            for str in contenu[0]{
+                if(str.label == service.name.components(separatedBy: ";")[0]){
+                    contenu[0].remove(at: i)
+                    tableView.reloadData()
+                }
+                i += 1
+            }
+        }
+    }
+
+    /*
+    override func viewDidDisappear(_ animated: Bool) {
+        humeurService?.stop()
+        humeurBrowser?.stop()
+        NSLog("viewDidDisappear")
     }
     
     deinit {
-        discoverService?.stop()
-        discoverBrowser?.stop()
-        
+        humeurService?.stop()
+        humeurBrowser?.stop()
+        NSLog("deinit")
     }
+    */
     
 }
 
