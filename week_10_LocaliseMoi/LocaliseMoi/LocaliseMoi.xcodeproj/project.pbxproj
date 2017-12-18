@@ -16,7 +16,57 @@
 		A652CB501FD889B600D124FD /* UneCellule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A652CB4E1FD889B600D124FD /* UneCellule.swift */; };
 		A652CB551FD88A8000D124FD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A652CB531FD88A8000D124FD /* MapViewController.swift */; };
 		A652CB561FD88A8000D124FD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A652CB541FD88A8000D124FD /* MapView.swift */; };
+		A6C684B91FE7EC2F0001F284 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C684B71FE7EC2F0001F284 /* Interface.storyboard */; };
+		A6C684BB1FE7EC2F0001F284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C684BA1FE7EC2F0001F284 /* Assets.xcassets */; };
+		A6C684C21FE7EC2F0001F284 /* LocaliseMoiWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A6C684C11FE7EC2F0001F284 /* LocaliseMoiWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A6C684C91FE7EC2F0001F284 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C684C81FE7EC2F0001F284 /* InterfaceController.swift */; };
+		A6C684CB1FE7EC300001F284 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C684CA1FE7EC300001F284 /* ExtensionDelegate.swift */; };
+		A6C684CD1FE7EC300001F284 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C684CC1FE7EC300001F284 /* NotificationController.swift */; };
+		A6C684CF1FE7EC300001F284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C684CE1FE7EC300001F284 /* Assets.xcassets */; };
+		A6C684D31FE7EC300001F284 /* LocaliseMoiWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A6C684B51FE7EC2F0001F284 /* LocaliseMoiWatch.app */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A6C684C31FE7EC2F0001F284 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A652CB2E1FD8851B00D124FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6C684C01FE7EC2F0001F284;
+			remoteInfo = "LocaliseMoiWatch Extension";
+		};
+		A6C684D11FE7EC300001F284 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A652CB2E1FD8851B00D124FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6C684B41FE7EC2F0001F284;
+			remoteInfo = LocaliseMoiWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A6C684D91FE7EC300001F284 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A6C684C21FE7EC2F0001F284 /* LocaliseMoiWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6C684DB1FE7EC300001F284 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				A6C684D31FE7EC300001F284 /* LocaliseMoiWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A652CB361FD8851B00D124FD /* LocaliseMoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocaliseMoi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,10 +80,28 @@
 		A652CB4E1FD889B600D124FD /* UneCellule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UneCellule.swift; sourceTree = "<group>"; };
 		A652CB531FD88A8000D124FD /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A652CB541FD88A8000D124FD /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		A6C684B51FE7EC2F0001F284 /* LocaliseMoiWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocaliseMoiWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6C684B81FE7EC2F0001F284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A6C684BA1FE7EC2F0001F284 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A6C684BC1FE7EC2F0001F284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6C684C11FE7EC2F0001F284 /* LocaliseMoiWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "LocaliseMoiWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6C684C71FE7EC2F0001F284 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		A6C684C81FE7EC2F0001F284 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		A6C684CA1FE7EC300001F284 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		A6C684CC1FE7EC300001F284 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		A6C684CE1FE7EC300001F284 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A6C684D01FE7EC300001F284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A652CB331FD8851B00D124FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6C684BE1FE7EC2F0001F284 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -47,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				A652CB381FD8851B00D124FD /* LocaliseMoi */,
+				A6C684B61FE7EC2F0001F284 /* LocaliseMoiWatch */,
+				A6C684C51FE7EC2F0001F284 /* LocaliseMoiWatch Extension */,
 				A652CB371FD8851B00D124FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				A652CB361FD8851B00D124FD /* LocaliseMoi.app */,
+				A6C684B51FE7EC2F0001F284 /* LocaliseMoiWatch.app */,
+				A6C684C11FE7EC2F0001F284 /* LocaliseMoiWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +148,37 @@
 			path = LocaliseMoi;
 			sourceTree = "<group>";
 		};
+		A6C684B61FE7EC2F0001F284 /* LocaliseMoiWatch */ = {
+			isa = PBXGroup;
+			children = (
+				A6C684B71FE7EC2F0001F284 /* Interface.storyboard */,
+				A6C684BA1FE7EC2F0001F284 /* Assets.xcassets */,
+				A6C684BC1FE7EC2F0001F284 /* Info.plist */,
+			);
+			path = LocaliseMoiWatch;
+			sourceTree = "<group>";
+		};
+		A6C684C51FE7EC2F0001F284 /* LocaliseMoiWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A6C684C81FE7EC2F0001F284 /* InterfaceController.swift */,
+				A6C684CA1FE7EC300001F284 /* ExtensionDelegate.swift */,
+				A6C684CC1FE7EC300001F284 /* NotificationController.swift */,
+				A6C684CE1FE7EC300001F284 /* Assets.xcassets */,
+				A6C684D01FE7EC300001F284 /* Info.plist */,
+				A6C684C61FE7EC2F0001F284 /* Supporting Files */,
+			);
+			path = "LocaliseMoiWatch Extension";
+			sourceTree = "<group>";
+		};
+		A6C684C61FE7EC2F0001F284 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6C684C71FE7EC2F0001F284 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,15 +189,51 @@
 				A652CB321FD8851B00D124FD /* Sources */,
 				A652CB331FD8851B00D124FD /* Frameworks */,
 				A652CB341FD8851B00D124FD /* Resources */,
+				A6C684DB1FE7EC300001F284 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A6C684D21FE7EC300001F284 /* PBXTargetDependency */,
 			);
 			name = LocaliseMoi;
 			productName = LocaliseMoi;
 			productReference = A652CB361FD8851B00D124FD /* LocaliseMoi.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A6C684B41FE7EC2F0001F284 /* LocaliseMoiWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6C684DA1FE7EC300001F284 /* Build configuration list for PBXNativeTarget "LocaliseMoiWatch" */;
+			buildPhases = (
+				A6C684B31FE7EC2F0001F284 /* Resources */,
+				A6C684D91FE7EC300001F284 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6C684C41FE7EC2F0001F284 /* PBXTargetDependency */,
+			);
+			name = LocaliseMoiWatch;
+			productName = LocaliseMoiWatch;
+			productReference = A6C684B51FE7EC2F0001F284 /* LocaliseMoiWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		A6C684C01FE7EC2F0001F284 /* LocaliseMoiWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6C684D81FE7EC300001F284 /* Build configuration list for PBXNativeTarget "LocaliseMoiWatch Extension" */;
+			buildPhases = (
+				A6C684BD1FE7EC2F0001F284 /* Sources */,
+				A6C684BE1FE7EC2F0001F284 /* Frameworks */,
+				A6C684BF1FE7EC2F0001F284 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LocaliseMoiWatch Extension";
+			productName = "LocaliseMoiWatch Extension";
+			productReference = A6C684C11FE7EC2F0001F284 /* LocaliseMoiWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -107,6 +246,16 @@
 				ORGANIZATIONNAME = "Nicolas Salleron";
 				TargetAttributes = {
 					A652CB351FD8851B00D124FD = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = WCSYUG993U;
+						ProvisioningStyle = Automatic;
+					};
+					A6C684B41FE7EC2F0001F284 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = WCSYUG993U;
+						ProvisioningStyle = Automatic;
+					};
+					A6C684C01FE7EC2F0001F284 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = WCSYUG993U;
 						ProvisioningStyle = Automatic;
@@ -127,6 +276,8 @@
 			projectRoot = "";
 			targets = (
 				A652CB351FD8851B00D124FD /* LocaliseMoi */,
+				A6C684B41FE7EC2F0001F284 /* LocaliseMoiWatch */,
+				A6C684C01FE7EC2F0001F284 /* LocaliseMoiWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +291,23 @@
 				A652CB441FD8851B00D124FD /* LaunchScreen.storyboard in Resources */,
 				A652CB411FD8851B00D124FD /* Assets.xcassets in Resources */,
 				A652CB3F1FD8851B00D124FD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6C684B31FE7EC2F0001F284 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6C684BB1FE7EC2F0001F284 /* Assets.xcassets in Resources */,
+				A6C684B91FE7EC2F0001F284 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6C684BF1FE7EC2F0001F284 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6C684CF1FE7EC300001F284 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +326,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6C684BD1FE7EC2F0001F284 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6C684CD1FE7EC300001F284 /* NotificationController.swift in Sources */,
+				A6C684CB1FE7EC300001F284 /* ExtensionDelegate.swift in Sources */,
+				A6C684C91FE7EC2F0001F284 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6C684C41FE7EC2F0001F284 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6C684C01FE7EC2F0001F284 /* LocaliseMoiWatch Extension */;
+			targetProxy = A6C684C31FE7EC2F0001F284 /* PBXContainerItemProxy */;
+		};
+		A6C684D21FE7EC300001F284 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6C684B41FE7EC2F0001F284 /* LocaliseMoiWatch */;
+			targetProxy = A6C684D11FE7EC300001F284 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A652CB3D1FD8851B00D124FD /* Main.storyboard */ = {
@@ -175,6 +366,14 @@
 				A652CB431FD8851B00D124FD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A6C684B71FE7EC2F0001F284 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6C684B81FE7EC2F0001F284 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -303,6 +502,76 @@
 			};
 			name = Release;
 		};
+		A6C684D41FE7EC300001F284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WCSYUG993U;
+				IBSC_MODULE = LocaliseMoiWatch_Extension;
+				INFOPLIST_FILE = LocaliseMoiWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.LocaliseMoi.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		A6C684D51FE7EC300001F284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WCSYUG993U;
+				IBSC_MODULE = LocaliseMoiWatch_Extension;
+				INFOPLIST_FILE = LocaliseMoiWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.LocaliseMoi.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		A6C684D61FE7EC300001F284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = WCSYUG993U;
+				INFOPLIST_FILE = "LocaliseMoiWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.LocaliseMoi.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		A6C684D71FE7EC300001F284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = WCSYUG993U;
+				INFOPLIST_FILE = "LocaliseMoiWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nicolas.salleron.LocaliseMoi.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -320,6 +589,23 @@
 			buildConfigurations = (
 				A652CB491FD8851B00D124FD /* Debug */,
 				A652CB4A1FD8851B00D124FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6C684D81FE7EC300001F284 /* Build configuration list for PBXNativeTarget "LocaliseMoiWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6C684D61FE7EC300001F284 /* Debug */,
+				A6C684D71FE7EC300001F284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A6C684DA1FE7EC300001F284 /* Build configuration list for PBXNativeTarget "LocaliseMoiWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6C684D41FE7EC300001F284 /* Debug */,
+				A6C684D51FE7EC300001F284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

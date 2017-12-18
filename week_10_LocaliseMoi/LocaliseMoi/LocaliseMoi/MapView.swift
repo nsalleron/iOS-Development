@@ -189,6 +189,16 @@ class mainView: UIView, MKMapViewDelegate,
             carte.setRegion(region, animated: true)
             
             
+         
+          
+                    // this is a meaningless message, but it's enough for our purposes
+            let message = ["Message": "\(lat);\(lng)"]
+            
+            myControler?.session.sendMessage(message, replyHandler: nil, errorHandler: nil)
+            NSLog("Print of message %@",message)
+          
+            
+            
             textf.textColor = UIColor.black
             textf.font = UIFont.boldSystemFont(ofSize: 20)
             

@@ -9,11 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
+import WatchConnectivity
 
-class MapViewController: UIViewController {
+
+class MapViewController: UIViewController, WCSessionDelegate {
 
     let v = mainView(frame: UIScreen.main.bounds)
     var history : HistoryController?
+    let session = WCSession.default();
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -35,6 +38,18 @@ class MapViewController: UIViewController {
                                           handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+        
+        
+        session.delegate = self
+        session.activate()
+    }
+    
+    
+    func sendWatchMessage() {
+        let message = ["Message": "48.846469;2.356602"]
+        session.sendMessage(message, replyHandler: nil, errorHandler: nil)
+        NSLog("Print of message %@",message)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +79,18 @@ class MapViewController: UIViewController {
         default:
             v.carte.mapType = .standard
         }
+        
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        self.sendWatchMessage()
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
         
     }
 }
