@@ -14,16 +14,10 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="LocaliseMoiWatch" customModuleProvider="target">
                     <items>
-                        <map height="103" alignment="left" id="uyw-h2-CWK"/>
-                        <slider width="1" alignment="left" value="1" maximum="3" steps="3" id="a0y-PT-72s">
-                            <connections>
-                                <action selector="changeRegion:" destination="AgC-eL-Hgc" id="IWb-Bu-5Eu"/>
-                            </connections>
-                        </slider>
+                        <map height="149" alignment="left" id="uyw-h2-CWK"/>
                     </items>
                     <connections>
                         <outlet property="map" destination="uyw-h2-CWK" id="h77-QX-2oc"/>
-                        <outlet property="slider" destination="a0y-PT-72s" id="D6M-oG-Ee8"/>
                     </connections>
                 </controller>
             </objects>
